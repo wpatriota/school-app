@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace tenda\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

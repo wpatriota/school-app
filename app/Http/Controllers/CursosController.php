@@ -2,7 +2,6 @@
 
 namespace tenda\Http\Controllers;
 
-use tenda\Forms\UserForm;
 use tenda\Curso;
 use Illuminate\Http\Request;
 

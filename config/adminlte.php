@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'PRINCIPAL',
+        'CONTROLE COLÉGIO',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -118,26 +118,67 @@ return [
             'text'        => 'Cursos',
             'url'         => 'cursos',
             'icon'        => 'book',
-            'label_color' => 'success',
+            'label_color' => 'success'
+        ],
+        [
+            'text'        => 'Turmas',
+            'url'         => 'turmas',
+            'icon'        => 'book',
+            'label_color' => 'success'
         ],
         [
             'text'        => 'Alunos',
             'url'         => 'alunos',
             'icon'        => 'user',
-            'label_color' => 'success',
+            'label_color' => 'success'
         ],
+        'CONTROLE TENDA',
         [
             'text'        => 'Membros',
             'url'         => 'membros',
             'icon'        => 'user',
-            'label_color' => 'success',
+            'label_color' => 'success'
         ],
+        'CONTROLE GERAL',
         [
             'text'        => 'Agenda',
             'url'         => 'agenda',
             'icon'        => 'calendar',
-            'label_color' => 'success',
-        ]/*,
+            'label_color' => 'success'
+        ],
+        [
+            'text'        => 'Estoque',
+            'url'         => 'estoque',
+            'icon'        => 'calendar',
+            'label_color' => 'success'
+        ],
+        [
+            'text'        => 'Frequencia',
+            'url'         => 'frequencia',
+            'icon'        => 'calendar',
+            'label_color' => 'success'
+        ],
+        [
+            'text'        => 'Grupos de Limpeza',
+            'url'         => 'gruposLimpeza',
+            'icon'        => 'calendar',
+            'label_color' => 'success'
+        ],
+        'CONTROLE FINANCEIRO',
+        [
+            'text'        => 'Entradas',
+            'url'         => 'frequencia',
+            'icon'        => 'calendar',
+            'label_color' => 'success'
+        ],
+        'RELATORIOS',
+        [
+            'text'        => 'Relatorios',
+            'url'         => 'relatorios',
+            'icon'        => 'calendar',
+            'label_color' => 'success'
+        ]
+        /*,
         [
             'text'        => 'Pages',
             'url'         => 'admin/pages',

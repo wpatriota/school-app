@@ -13,4 +13,9 @@ class Curso extends Model
     	'nome',
     	'descricao'
     ];
+
+    public function turma()
+    {
+        return $this->hasMany('App\Turma');
+    }
 }

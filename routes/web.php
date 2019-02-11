@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('cursos', 'CursosController');
-Route::resource('alunos', 'AlunosController');
-Route::resource('turmas', 'TurmasController');
+Route::resource('cursos', 'CursosController')->middleware('auth');
+Route::resource('alunos', 'AlunosController')->middleware('auth');
+Route::resource('turmas', 'TurmasController')->middleware('auth');
+Route::resource('agenda', 'AgendaController')->middleware('auth');
+Route::resource('membros', 'MembrosController')->middleware('auth');
+Route::resource('tiposevento', 'TiposEventoController')->middleware('auth');
 
 
 

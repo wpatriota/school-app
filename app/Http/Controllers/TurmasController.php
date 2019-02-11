@@ -15,6 +15,7 @@ class TurmasController extends Controller
     public function index()
     {
         $turmas = Turma::all();
+
         return View('turmas.index', compact('turmas'));
     }
 
@@ -25,7 +26,7 @@ class TurmasController extends Controller
      */
     public function create()
     {
-        //
+        return view('turmas.create');
     }
 
     /**
@@ -36,16 +37,30 @@ class TurmasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_curso'=>'required',
+            'nome'=> 'required',
+            'data_inicio' => 'required'
+        ]);
+
+          $turma = new Turma([
+            'id_curso' => $request->get('id_curso'),
+            'nome'=> $request->get('nome'),
+            'data_inicio'=> $request->get('data_inicio')
+          ]);
+
+          $turma->save();
+          
+          return redirect('/turmas')->with('success', 'Turma adicionada com sucesso');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \tenda\Turma  $turma
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Turma $turma)
     {
         //
     }
@@ -53,12 +68,12 @@ class TurmasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \tenda\Turma  $turma
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Turma $turma)
     {
-        //
+        return view('turmas.edit', compact('turma'));
     }
 
     /**
@@ -68,19 +83,33 @@ class TurmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Turma $turma)
     {
-        //
+        $request->validate([
+            'id_curso'=>'required',
+            'nome'=> 'required',
+            'data_inicio' =>'required'
+        ]);
+
+        $turma->id_curso = $request->get('id_curso');
+        $turma->nome = $request->get('nome');
+        $turma->data_inicio = $request->get('data_inicio');
+
+        $turma->save();
+
+        return redirect('/turmas')->with('success', 'Alterado com sucesso');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \tenda\Turma  $turma
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Turma $turma)
     {
-        //
+        $turma->delete();
+
+        return redirect('/turmas')->with('success', 'Turma removida com sucesso');
     }
 }

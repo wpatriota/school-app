@@ -1,7 +1,5 @@
 @extends('adminlte::page')
 
-@section('title', 'Sistema Tenda - Cursos')
-
 @section('content')
 <style>
   .uper {
@@ -16,25 +14,28 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
         <tr>
           <td>ID</td>
+          <td>Categoria Evento</td>
           <td>Nome</td>
-          <td>Descrição</td>
-          <td>Valor Mensalidade</td>
+          <td>Data</td>
+          <td>Horário</td>
+          <td>Tipo do Evento</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($cursos as $curso)
+        @foreach($agendas as $agenda)
         <tr>
-            <td>{{$curso->id}}</td>
-            <td>{{$curso->nome}}</td>
-            <td>{{$curso->descricao}}</td>
-            <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>
-            <td><a href="{{ route('cursos.edit',$curso->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$agenda->id}}</td>
+            <td>{{$agenda->tipoEvento->descricao}}</td>
+            <td>{{$agenda->nome_evento}}</td>
+            <td>{{$agenda->data}}</td>
+            <td>{{$agenda->horario}}</td>
+            <td>{{$agenda->publico}}</td>
+            <td><a href="{{ route('agenda.edit',$agenda->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
+                <form action="{{ route('agenda.destroy', $agenda->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

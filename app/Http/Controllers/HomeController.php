@@ -2,6 +2,7 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\Agenda;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $agendas = Agenda::all();
+
+        return view('home',compact('agendas'));
     }
 }

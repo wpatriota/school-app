@@ -10,6 +10,16 @@ class Individuo extends Model
 
     public function aluno()
     {
-        return $this->hasMany('App\Aluno');
+        return $this->belongsTo('tenda\Aluno');
+    }
+
+    public function membro()
+    {
+        return $this->belongsTo('tenda\Membro');
+    }
+
+    public function turma()
+    {
+        return $this->hasMany('tenda\Turma');
     }
 }

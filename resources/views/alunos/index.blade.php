@@ -26,9 +26,9 @@
         @foreach($alunos as $aluno)
         <tr>
             <td>{{$aluno->id}}</td>
-            <td>{{$aluno->id_individuo}}</td>
-            <td>{{$aluno->id_turma}}</td>
-            <td>{{$aluno->data_matricula}}</td>
+            <td>{{$aluno->individuo->nome}}</td>
+            <td>{{$aluno->turma->nome}}</td>
+            <td>{{ \Carbon\Carbon::parse($aluno->data_matricula)->format('d/m/Y')}}</td>
             <td><a href="{{ route('alunos.edit',$aluno->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('alunos.destroy', $aluno->id)}}" method="post">

@@ -1,7 +1,5 @@
 @extends('adminlte::page')
 
-@section('title', 'Sistema Tenda - Cursos')
-
 @section('content')
 <style>
   .uper {
@@ -16,25 +14,20 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
         <tr>
           <td>ID</td>
-          <td>Nome</td>
           <td>Descrição</td>
-          <td>Valor Mensalidade</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($cursos as $curso)
+        @foreach($tiposEvento as $tipoEvento)
         <tr>
-            <td>{{$curso->id}}</td>
-            <td>{{$curso->nome}}</td>
-            <td>{{$curso->descricao}}</td>
-            <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>
-            <td><a href="{{ route('cursos.edit',$curso->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$tipoEvento->id}}</td>
+            <td>{{$tipoEvento->descricao}}</td>
+            <td><a href="{{ route('tiposevento.edit',$tipoEvento->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
+                <form action="{{ route('tiposevento.destroy', $tipoEvento->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

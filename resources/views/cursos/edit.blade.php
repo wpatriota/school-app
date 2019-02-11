@@ -25,11 +25,15 @@
         @csrf
         <div class="form-group">
           <label for="nome">Nome:</label>
-          <input type="text" class="form-control" name="nome" value={{ $curso->nome }} />
+          <input type="text" class="form-control" name="nome" value="{{ $curso->nome }}" />
         </div>
         <div class="form-group">
           <label for="descricao">Descrição :</label>
-          <input type="textarea" class="form-control" name="descricao" value={{ $curso->descricao }} />
+          <input type="textarea" class="form-control" name="descricao" value="{{ $curso->descricao }}" />
+        </div>
+        <div class="form-group">
+          <label for="valor_mensalidade">Valor Mensalidade :</label>
+          <input type="textarea" class="form-control" name="valor_mensalidade" value="{{ $curso->valor_mensalidade }}"   />
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

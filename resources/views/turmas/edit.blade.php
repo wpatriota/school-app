@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Novo Curso
+    Editar Turma
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -20,21 +20,20 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('cursos.store') }}">
+      <form method="post" action="{{ route('turmas.update', $turma->id) }}">
+        @method('PATCH')
+        @csrf
         <div class="form-group">
-          @csrf
-          <label for="nome">Nome:</label>
-          <input type="text" class="form-control" name="nome"/>
+          <label for="id_curso">Nome:</label>
+          <input type="text" class="form-control" name="id_curso" value="{{ $turma->id_curso }}" />
         </div>
-
         <div class="form-group">
-          <label for="descricao">Descricao :</label>
-          <input type="text" class="form-control" name="descricao"/>
+          <label for="nome">Descrição :</label>
+          <input type="textarea" class="form-control" name="nome" value="{{ $turma->nome }}" />
         </div>
-
         <div class="form-group">
-          <label for="valor_mensalidade">Valor Mensalidade :</label>
-          <input type="text" class="form-control" name="valor_mensalidade"/>
+          <label for="data_inicio">Valor Mensalidade :</label>
+          <input type="textarea" class="form-control" name="data_inicio" value="{{ $turma->data_inicio }}" />
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

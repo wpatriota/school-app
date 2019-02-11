@@ -11,11 +11,12 @@ class Curso extends Model
     protected $fillable =	[
     	'id',
     	'nome',
-    	'descricao'
+    	'descricao',
+        'valor_mensalidade'
     ];
 
     public function turma()
     {
-        return $this->hasMany('App\Turma');
+        return $this->hasMany('tenda\Turma');
     }
 }

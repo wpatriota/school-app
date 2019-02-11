@@ -1,7 +1,5 @@
 @extends('adminlte::page')
 
-@section('title', 'Sistema Tenda - Cursos')
-
 @section('content')
 <style>
   .uper {
@@ -16,25 +14,26 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
         <tr>
           <td>ID</td>
           <td>Nome</td>
-          <td>Descrição</td>
-          <td>Valor Mensalidade</td>
+          <td>Data de Início</td>
+          <td>Data de Saída</td>
+          <td>Status</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($cursos as $curso)
+        @foreach($membros as $membro)
         <tr>
-            <td>{{$curso->id}}</td>
-            <td>{{$curso->nome}}</td>
-            <td>{{$curso->descricao}}</td>
-            <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>
-            <td><a href="{{ route('cursos.edit',$curso->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$membro->id}}</td>
+            <td>{{$membro->individuo->nome}}</td>
+            <td>{{ \Carbon\Carbon::parse($membro->data_inicio)->format('d/m/Y')}}</td>
+            <td>{{ \Carbon\Carbon::parse($membro->data_saida)->format('d/m/Y')}}</td>
+            <td><p class="label pull-right bg-green">{{$membro->status}}</p></td>
+            <td><a href="{{ route('membros.edit',$membro->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
+                <form action="{{ route('membros.destroy', $membro->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

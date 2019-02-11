@@ -14,13 +14,14 @@
   @endif
   <table class="table table-striped">
     <thead>
+        <tr><a href="{{ route('turmas.create')}}" class="btn btn-primary">Nova Turma</a></tr>
         <tr>
           <td>ID</td>
-          <td>id_curso</td>
-          <td>nome</td>
-          <td>data de Inicio</td>
-          <td>data de termino</td>
-          <td>id do professor</td>
+          <td>Curso</td>
+          <td>Turma</td>
+          <td>Data de Inicio</td>
+          <td>Data de termino</td>
+          <td>Professor</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
@@ -28,11 +29,11 @@
         @foreach($turmas as $turma)
         <tr>
             <td>{{$turma->id}}</td>
-            <td>{{$turma->id_curso}}</td>
+            <td>{{$turma->curso->nome}}</td>
             <td>{{$turma->nome}}</td>
-            <td>{{$turma->data_inicio}}</td>
-            <td>{{$turma->data_termino}}</td>
-            <td>{{$turma->id_professor}}</td>
+            <td>{{ \Carbon\Carbon::parse($turma->data_inicio)->format('d/m/Y')}}</td>
+            <td>{{ \Carbon\Carbon::parse($turma->data_termino)->format('d/m/Y')}}</td>
+            <td>{{$turma->professor->nome}}</td>
             <td><a href="{{ route('turmas.edit',$turma->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('turmas.destroy', $turma->id)}}" method="post">

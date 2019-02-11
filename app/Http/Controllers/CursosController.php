@@ -39,17 +39,19 @@ class CursosController extends Controller
     {
         $request->validate([
             'nome'=>'required',
-            'descricao'=> 'required'
+            'descricao'=> 'required',
+            'valor_mensalidade' => 'required'
         ]);
 
-          $curso = new Share([
+          $curso = new Curso([
             'nome' => $request->get('nome'),
-            'descricao'=> $request->get('descricao')
+            'descricao'=> $request->get('descricao'),
+            'valor_mensalidade'=> $request->get('valor_mensalidade')
           ]);
 
           $curso->save();
           
-          return redirect('/cursos')->with('success', 'Curso add com sucesso');
+          return redirect('/cursos')->with('success', 'Curso adicionado com sucesso');
     }
 
     /**
@@ -85,11 +87,13 @@ class CursosController extends Controller
     {
         $request->validate([
             'nome'=>'required',
-            'descricao'=> 'required'
+            'descricao'=> 'required',
+            'valor_mensalidade' =>'required'
         ]);
 
         $curso->nome = $request->get('nome');
         $curso->descricao = $request->get('descricao');
+        $curso->valor_mensalidade = $request->get('valor_mensalidade');
 
         $curso->save();
 

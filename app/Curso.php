@@ -17,6 +17,6 @@ class Curso extends Model
 
     public function turma()
     {
-        return $this->hasMany('tenda\Turma');
+        return $this->belongsToMany('tenda\Turma', 'id_curso');
     }
 }

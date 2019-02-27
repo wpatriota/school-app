@@ -2,11 +2,11 @@
 
 namespace tenda\Http\Controllers;
 
-use tenda\Agenda;
-use tenda\TipoEvento;
+use tenda\Professor;
+use tenda\Individuo;
 use Illuminate\Http\Request;
 
-class AgendaController extends Controller
+class ProfessoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        $agendas = Agenda::all();
+        $professores = Professor::all();
 
-        return View('agenda.index', compact('agendas'));
+        return View('professores.index', compact('professores'));
     }
 
     /**
@@ -27,9 +27,8 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        $tiposEvento = TipoEvento::all();
-
-        return view('agenda.create', compact('tiposEvento'));
+        $individuos = Individuo::all();
+        return view('professores.create', compact('individuos'));
     }
 
     /**
@@ -41,24 +40,19 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_tipo_evento'=>'required',
-            'nome_evento'=> 'required',
-            'data' => 'required',
-            'horario' => 'required',
-            'evento_publico' => 'required'
+            'id_individuo'=>'required',
+            'data_inicio'=> 'required'
         ]);
 
-        $agenda = new Agenda([
-            'id_tipo_evento' => $request->get('id_tipo_evento'),
-            'nome_evento'=> $request->get('nome_evento'),
-            'data'=> $request->get('data'),
-            'horario'=> $request->get('horario'),
-            'evento_publico'=> $request->get('evento_publico'),
+        $professor = new Professor([
+            'id_individuo' => $request->get('id_individuo'),
+            'data_inicio'=> $request->get('data_inicio'),
+            'data_termino'=> $request->get('data_termino')
         ]);
 
-        $agenda->save();
+        $professor->save();
           
-        return redirect('/agenda')->with('success', 'Evento adicionado com sucesso');
+        return redirect('/professores')->with('success', 'Professor adicionado com sucesso');
     }
 
     /**
@@ -67,7 +61,7 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show($id)
     {
         //
     }
@@ -78,9 +72,9 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agenda $agenda)
+    public function edit(Professor $professor)
     {
-        return view('agenda.edit', compact('agenda'));
+        return view('professores.edit', compact('professor'));
     }
 
     /**
@@ -90,7 +84,7 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -101,10 +95,8 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agenda $agenda)
+    public function destroy($id)
     {
-        $agenda->delete();
-
-        return redirect('/agenda')->with('success', 'Evento removido com sucesso');
+        //
     }
 }

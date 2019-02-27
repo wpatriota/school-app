@@ -1,11 +1,6 @@
 @extends('adminlte::page')
 
 @section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
 <div class="uper">
   @if(session()->get('success'))
     <div class="alert alert-success">
@@ -22,6 +17,7 @@
           <td>Data de Inicio</td>
           <td>Data de termino</td>
           <td>Professor</td>
+          <td>Período de Matrículas</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
@@ -30,10 +26,11 @@
         <tr>
             <td>{{$turma->id}}</td>
             <td>{{$turma->curso->nome}}</td>
-            <td>{{$turma->nome}}</td>
+            <td><a href="{{ route('turmas.show',$turma->id)}}"><i class="fa fa-eye"></i>{{$turma->nome}}</a></td>
             <td>{{ \Carbon\Carbon::parse($turma->data_inicio)->format('d/m/Y')}}</td>
             <td>{{ \Carbon\Carbon::parse($turma->data_termino)->format('d/m/Y')}}</td>
-            <td>{{$turma->professor->nome}}</td>
+            <td>{{$turma->professor->individuo->nome}}</td>
+            <td><span class="badge bg-green">{{$turma->periodo_matricula}}</span></td>
             <td><a href="{{ route('turmas.edit',$turma->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('turmas.destroy', $turma->id)}}" method="post">

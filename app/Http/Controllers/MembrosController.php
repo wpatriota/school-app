@@ -3,6 +3,7 @@
 namespace tenda\Http\Controllers;
 
 use tenda\Membro;
+use tenda\Individuo;
 use Illuminate\Http\Request;
 
 class MembrosController extends Controller
@@ -26,7 +27,7 @@ class MembrosController extends Controller
      */
     public function create()
     {
-        //
+        return view('membros.create');
     }
 
     /**
@@ -37,7 +38,23 @@ class MembrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $individuoController = new IndividuosController();
+        $individuo = $individuoController->store($request);
+
+        $request->validate([
+            'status' => 'required'
+        ]);
+
+        $aluno = new Membro([
+            'id_individuo' => $individuo,
+            'data_inicio' => $request->get('data_inicio'),
+            'data_saida'=> $request->get('data_saida'),
+            'status' => $request->get('status')
+        ]);
+
+        $aluno->save();
+          
+        return redirect('/membros')->with('success', 'Membro adicionado com sucesso');
     }
 
     /**
@@ -48,7 +65,10 @@ class MembrosController extends Controller
      */
     public function show($id)
     {
-        //
+        $membro = Membro::find($id);
+        $individuo = Individuo::find($membro->id_individuo);
+
+        return view('membros.show', compact('membro', 'individuo'));
     }
 
     /**
@@ -57,9 +77,9 @@ class MembrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Membro $membro)
     {
-        //
+        return view('membros.edit', compact('membro'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace tenda\Http\Controllers;
 
 use tenda\Aluno;
+use tenda\Turma;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -26,7 +27,9 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        return view('alunos.create');
+        $turmas = Turma::all();
+
+        return view('alunos.create', compact('turmas'));
     }
 
     /**
@@ -37,7 +40,25 @@ class AlunosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $individuoController = new IndividuosController();
+        $individuo = $individuoController->store($request);
+
+        $request->validate([
+            'id_turma'=> 'required',
+            'data_matricula' => 'required',
+            'valor_mensalidade' => 'required'
+        ]);
+
+        $aluno = new Aluno([
+            'id_individuo' => $individuo,
+            'id_turma'=> $request->get('id_turma'),
+            'data_matricula' => $request->get('data_matricula'),
+            'valor_mensalidade'=> $request->get('valor_mensalidade')
+        ]);
+
+        $aluno->save();
+          
+        return redirect('/alunos')->with('success', 'Aluno adicionado com sucesso');
     }
 
     /**
@@ -57,9 +78,9 @@ class AlunosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Aluno $aluno)
     {
-        //
+        return view('alunos.edit', compact('aluno'));
     }
 
     /**

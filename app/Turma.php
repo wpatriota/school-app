@@ -16,16 +16,16 @@ class Turma extends Model
 
     public function aluno()
     {
-        return $this->hasMany('tenda\Aluno');
+        return $this->hasMany('tenda\Aluno', 'id');
     }
 
     public function curso()
     {
-        return $this->belongsTo('tenda\Curso', 'id_curso');
+        return $this->hasOne('tenda\Curso', 'id');
     }
 
     public function professor()
     {
-        return $this->belongsTo('tenda\Individuo', 'id_professor');
+        return $this->hasOne('tenda\Professor', 'id');
     }
 }

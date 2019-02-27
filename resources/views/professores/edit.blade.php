@@ -1,9 +1,14 @@
 @extends('adminlte::page')
 
 @section('content')
+<style>
+  .uper {
+    margin-top: 40px;
+  }
+</style>
 <div class="card uper">
   <div class="card-header">
-    Novo Curso
+    Editar Curso
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -15,21 +20,20 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('cursos.store') }}">
+      <form method="post" action="{{ route('cursos.update', $curso->id) }}">
+        @method('PATCH')
+        @csrf
         <div class="form-group">
-          @csrf
           <label for="nome">Nome:</label>
-          <input type="text" class="form-control" name="nome"/>
+          <input type="text" class="form-control" name="nome" value="{{ $curso->nome }}" />
         </div>
-
         <div class="form-group">
-          <label for="descricao">Descricao :</label>
-          <input type="text" class="form-control" name="descricao"/>
+          <label for="descricao">Descrição :</label>
+          <input type="textarea" class="form-control" name="descricao" value="{{ $curso->descricao }}" />
         </div>
-
         <div class="form-group">
           <label for="valor_mensalidade">Valor Mensalidade :</label>
-          <input type="text" class="form-control" name="valor_mensalidade"/>
+          <input type="textarea" class="form-control" name="valor_mensalidade" value="{{ $curso->valor_mensalidade }}"   />
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

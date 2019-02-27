@@ -2,10 +2,10 @@
 
 namespace tenda\Http\Controllers;
 
-use tenda\TipoEvento;
+use tenda\FrequenciaColegio;
 use Illuminate\Http\Request;
 
-class TiposEventoController extends Controller
+class FrequenciasColegioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class TiposEventoController extends Controller
      */
     public function index()
     {
-        $tiposEvento = TipoEvento::all();
+        $frequenciasColegio = FrequenciaColegio::all();
 
-        return view('tiposEvento.index', compact('tiposEvento'));
+        return view('frequenciasColegio.index', compact('frequenciasColegio'));
     }
 
     /**
@@ -57,7 +57,7 @@ class TiposEventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoEvento $tipoEvento)
+    public function edit($id)
     {
         //
     }

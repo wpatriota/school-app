@@ -2,6 +2,7 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\Individuo;
 use Illuminate\Http\Request;
 
 class IndividuosController extends Controller
@@ -33,8 +34,49 @@ class IndividuosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $request->validate([
+            'nome'=>'required',
+            'user_id',
+            'sobrenome'=> 'required',
+            'rg'=> 'required',
+            'cpf'=> 'required',
+            'email'=> 'required',
+            'telefone'=> 'required',
+            'celular'=> 'required',
+            'endereco'=> 'required',
+            'bairro'=> 'required',
+            'cidade'=> 'required',
+            'estado'=> 'required',
+            'cep'=> 'required',
+            'data_nascimento'=> 'required',
+            'estado_civil'=> 'required',
+            'profissao'=> 'required',
+            'observacao' => 'required'
+        ]);
+
+        $individuo = new Individuo([
+            'nome' => $request->get('nome'),
+            'user_id' => $request->get('user_id'),
+            'sobrenome' => $request->get('sobrenome'),
+            'rg' => $request->get('rg'),
+            'cpf' => $request->get('cpf'),
+            'email' => $request->get('email'),
+            'telefone' => $request->get('telefone'),
+            'celular' => $request->get('celular'),
+            'endereco' => $request->get('endereco'),
+            'bairro' => $request->get('bairro'),
+            'cidade' => $request->get('cidade'),
+            'estado' => $request->get('estado'),
+            'cep' => $request->get('cep'),
+            'data_nascimento' => $request->get('data_nascimento'),
+            'estado_civil' => $request->get('estado_civil'),
+            'profissao' => $request->get('profissao'),
+            'observacao' => $request->get('observacao')
+        ]);
+
+        $individuo->save();
+        return $individuo->id;
     }
 
     /**

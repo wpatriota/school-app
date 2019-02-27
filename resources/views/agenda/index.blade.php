@@ -1,11 +1,6 @@
 @extends('adminlte::page')
 
 @section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
 <div class="uper">
   @if(session()->get('success'))
     <div class="alert alert-success">
@@ -14,6 +9,7 @@
   @endif
   <table class="table table-striped">
     <thead>
+      <tr><a href="{{ route('agenda.create')}}" class="btn btn-primary">Adicionar Evento</a></tr>
         <tr>
           <td>ID</td>
           <td>Categoria Evento</td>
@@ -28,7 +24,6 @@
         @foreach($agendas as $agenda)
         <tr>
             <td>{{$agenda->id}}</td>
-            <td>{{$agenda->tipoEvento->descricao}}</td>
             <td>{{$agenda->nome_evento}}</td>
             <td>{{$agenda->data}}</td>
             <td>{{$agenda->horario}}</td>

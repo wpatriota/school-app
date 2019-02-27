@@ -3,6 +3,8 @@
 namespace tenda\Http\Controllers;
 
 use tenda\Turma;
+use tenda\Curso;
+use tenda\Professor;
 use Illuminate\Http\Request;
 
 class TurmasController extends Controller
@@ -26,7 +28,10 @@ class TurmasController extends Controller
      */
     public function create()
     {
-        return view('turmas.create');
+        $cursos = Curso::all();
+        $professores = Professor::all();
+
+        return view('turmas.create', compact('turma', 'cursos', 'professores'));
     }
 
     /**
@@ -62,7 +67,10 @@ class TurmasController extends Controller
      */
     public function show(Turma $turma)
     {
-        //
+        $cursos = Curso::all();
+        $professores = Professor::all();
+
+        return view('turmas.show', compact('turma', 'cursos', 'professores'));
     }
 
     /**
@@ -73,7 +81,10 @@ class TurmasController extends Controller
      */
     public function edit(Turma $turma)
     {
-        return view('turmas.edit', compact('turma'));
+        $cursos = Curso::all();
+        $professores = Professor::all();
+
+        return view('turmas.edit', compact('turma', 'cursos', 'professores'));
     }
 
     /**

@@ -13,7 +13,7 @@
 	<div class="box ">
 		<div class="box-header">
 			<h3 class="box-title">Próximos Eventos</h3>
-			<a href="{{ route('turmas.create')}}" class="btn btn-primary">Adicionar Evento</a>
+			<a href="{{ route('agenda.create')}}" class="btn btn-primary">Adicionar Evento</a>
 		</div>
 		 <table class="table table-condensed">
 		    <thead>

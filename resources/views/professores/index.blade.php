@@ -9,7 +9,7 @@
   @endif
   <table class="table table-striped">
     <thead>
-      <tr><a href="{{ route('alunos.create')}}" class="btn btn-primary">Novo Aluno</a></tr>
+      <tr><a href="{{ route('professores.create')}}" class="btn btn-primary">Novo Professor</a></tr>
       <tr>
         <td>ID</td>
         <td>Nome</td>
@@ -19,15 +19,14 @@
       </tr>
     </thead>
     <tbody>
-        @foreach($alunos as $aluno)
+        @foreach($professores as $professor)
         <tr>
-            <td>{{$aluno->id}}</td>
-            <td>{{$aluno->individuo->nome . ' ' . $aluno->individuo->sobrenome}}</td>
-            <td>{{$aluno->turma->nome}}</td>
-            <td>{{ \Carbon\Carbon::parse($aluno->data_matricula)->format('d/m/Y')}}</td>
-            <td><a href="{{ route('alunos.edit',$aluno->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$professor->id}}</td>
+            <td>{{$professor->individuo->nome}}</td>
+            <td>{{ \Carbon\Carbon::parse($professor->data_matricula)->format('d/m/Y')}}</td>
+            <td><a href="{{ route('professores.edit',$professor->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('alunos.destroy', $aluno->id)}}" method="post">
+                <form action="{{ route('professores.destroy', $professor->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

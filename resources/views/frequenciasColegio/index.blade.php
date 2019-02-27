@@ -11,25 +11,23 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-        <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
+        <tr><a href="{{ route('frequenciasColegio.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
           <td>ID</td>
-          <td>Nome</td>
-          <td>Descrição</td>
-          <td>Valor Mensalidade</td>
+          <td>Aluno</td>
+          <td>Evento</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($cursos as $curso)
+        @foreach($frequenciasColegio as $frequenciaColegio)
         <tr>
-            <td>{{$curso->id}}</td>
-            <td>{{$curso->nome}}</td>
-            <td>{{$curso->descricao}}</td>
-            <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>
-            <td><a href="{{ route('cursos.edit',$curso->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$frequenciaColegio->id}}</td>
+            <td>{{$frequenciaColegio->aluno->individuo->nome . ' ' . $frequenciaColegio->aluno->individuo->sobrenome}}</td>
+            <td>{{$frequenciaColegio->agenda->nome_evento}}</td>
+            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
+                <form action="{{ route('frequenciasColegio.destroy', $frequenciaColegio->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

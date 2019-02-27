@@ -43,15 +43,15 @@ class CursosController extends Controller
             'valor_mensalidade' => 'required'
         ]);
 
-          $curso = new Curso([
+        $curso = new Curso([
             'nome' => $request->get('nome'),
             'descricao'=> $request->get('descricao'),
             'valor_mensalidade'=> $request->get('valor_mensalidade')
-          ]);
+        ]);
 
-          $curso->save();
+        $curso->save();
           
-          return redirect('/cursos')->with('success', 'Curso adicionado com sucesso');
+        return redirect('/cursos')->with('success', 'Curso adicionado com sucesso');
     }
 
     /**

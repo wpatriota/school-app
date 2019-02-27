@@ -108,76 +108,97 @@ return [
     */
 
     'menu' => [
-        'CONTROLE COLÉGIO',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Controle Cólegio',
+            'icon' => 'graduation-cap',
+            'submenu' => [
+                [
+                    'text'        => 'Cursos',
+                    'url'         => 'cursos',
+                    'icon'        => 'book',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Turmas',
+                    'url'         => 'turmas',
+                    'icon'        => 'book',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Alunos',
+                    'url'         => 'alunos',
+                    'icon'        => 'user',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Professores',
+                    'url'         => 'professores',
+                    'icon'        => 'book',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Frequencia',
+                    'url'         => 'frequenciasColegio',
+                    'icon'        => 'book',
+                    'label_color' => 'success'
+                ]   
+            ]
         ],
         [
-            'text'        => 'Cursos',
-            'url'         => 'cursos',
-            'icon'        => 'book',
-            'label_color' => 'success'
-        ],
+            'text' => 'Controle Tenda',
+            'icon' => 'university',
+            'submenu' => [
+                [
+                    'text'        => 'Membros',
+                    'url'         => 'membros',
+                    'icon'        => 'users',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Frequencia',
+                    'url'         => 'frequenciasTenda',
+                    'icon'        => 'calendar',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Grupos de Limpeza',
+                    'url'         => 'gruposLimpeza',
+                    'icon'        => 'calendar',
+                    'label_color' => 'success'
+                ],
+                [
+                    'text'        => 'Estoque',
+                    'url'         => 'estoque',
+                    'icon'        => 'calendar',
+                    'label_color' => 'success'
+                ]
+            ]
+        ]
+        ,
         [
-            'text'        => 'Turmas',
-            'url'         => 'turmas',
-            'icon'        => 'book',
-            'label_color' => 'success'
-        ],
-        [
-            'text'        => 'Alunos',
-            'url'         => 'alunos',
-            'icon'        => 'user',
-            'label_color' => 'success'
-        ],
-        'CONTROLE TENDA',
-        [
-            'text'        => 'Membros',
-            'url'         => 'membros',
-            'icon'        => 'user',
-            'label_color' => 'success'
-        ],
-        'CONTROLE GERAL',
-        [
-            'text'        => 'Agenda',
+            'text'        => 'Agenda Geral',
             'url'         => 'agenda',
             'icon'        => 'calendar',
             'label_color' => 'success'
         ],
         [
-            'text'        => 'Estoque',
-            'url'         => 'estoque',
-            'icon'        => 'calendar',
-            'label_color' => 'success'
+            'text' => 'Financeiro',
+            'icon' => 'money',
+            'submenu' => [
+                [
+                    'text' => 'entradas'
+                ],
+                [
+                    'text' => 'saidas'
+                ]
+                
+            ]
         ],
-        [
-            'text'        => 'Frequencia',
-            'url'         => 'frequencia',
-            'icon'        => 'calendar',
+        [   
+            'text' => 'FRENTE DE CAIXA',
+            'icon' => 'dollar text-green',
             'label_color' => 'success'
-        ],
-        [
-            'text'        => 'Grupos de Limpeza',
-            'url'         => 'gruposLimpeza',
-            'icon'        => 'calendar',
-            'label_color' => 'success'
-        ],
-        'CONTROLE FINANCEIRO',
-        [
-            'text'        => 'Entradas',
-            'url'         => 'frequencia',
-            'icon'        => 'calendar',
-            'label_color' => 'success'
-        ],
-        'RELATORIOS',
-        [
-            'text'        => 'Relatorios',
-            'url'         => 'relatorios',
-            'icon'        => 'calendar',
-            'label_color' => 'success'
-        ]
+        ]        
         /*,
         [
             'text'        => 'Pages',

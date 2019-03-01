@@ -5,6 +5,7 @@ namespace tenda\Http\Controllers;
 use tenda\Turma;
 use tenda\Curso;
 use tenda\Professor;
+use tenda\Aluno;
 use Illuminate\Http\Request;
 
 class TurmasController extends Controller
@@ -66,11 +67,10 @@ class TurmasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Turma $turma)
-    {
-        $cursos = Curso::all();
-        $professores = Professor::all();
+    {        
+        $alunos = Aluno::where('id_turma', $turma->id)->get();
 
-        return view('turmas.show', compact('turma', 'cursos', 'professores'));
+        return view('turmas.show', compact('turma', 'alunos'));
     }
 
     /**

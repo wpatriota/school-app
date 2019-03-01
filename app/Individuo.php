@@ -42,4 +42,9 @@ class Individuo extends Model
     {
         return $this->belongsTo('tenda\Professor', 'id_professor');
     }
+
+    public function grupoLimpeza()
+    {
+        return $this->hasOne('tenda\grupoLimpeza', 'id');
+    }
 }

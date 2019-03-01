@@ -11,23 +11,20 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-        <tr><a href="{{ route('frequenciasTenda.create')}}" class="btn btn-primary">Nova entrada</a></tr>
+        <tr><a href="{{ route('gruposLimpeza.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
           <td>ID</td>
           <td>Aluno</td>
-          <td>Evento</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($frequenciasTenda as $frequenciaTenda)
+        @foreach($gruposLimpeza as $grupoLimpeza)
         <tr>
-            <td>{{$frequenciaTenda->id}}</td>
-            <td>{{$frequenciaTenda->membro->individuo->nome . ' ' . $frequenciaTenda->membro->individuo->sobrenome}}</td>
-            <td>{{$frequenciaTenda->agenda->nome_evento}}</td>
-            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaTenda->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$grupoLimpeza->id}}</td>
+            <td>{{$grupoLimpeza->individuo->nome . ' ' . $grupoLimpeza->individuo->sobrenome}}</td>
             <td>
-                <form action="{{ route('frequenciasColegio.destroy', $frequenciaTenda->id)}}" method="post">
+                <form action="{{ route('frequenciasColegio.destroy', $grupoLimpeza->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Excluir</button>

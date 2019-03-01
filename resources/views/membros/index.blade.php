@@ -26,8 +26,13 @@
             <td>{{$membro->individuo->nome}}</td>
             <td>{{ \Carbon\Carbon::parse($membro->data_inicio)->format('d/m/Y')}}</td>
             <td>{{ \Carbon\Carbon::parse($membro->data_saida)->format('d/m/Y')}}</td>
-            <td><span class="badge bg-green">{{$membro->status}}</span></td>
-            <td><a href="{{ route('membros.show',$membro->id)}}" class="btn btn-primary">Ver Dados</a></td>
+            <td>
+              @if($membro->status == 's' || $membro->status == 'S')
+                <span class="badge bg-green">ATIVO</span>
+              @else
+                <span class="badge bg-red">INATIVO</span>
+              @endif
+            </td>
             <td><a href="{{ route('membros.edit',$membro->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('membros.destroy', $membro->id)}}" method="post">

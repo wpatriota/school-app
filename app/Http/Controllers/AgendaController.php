@@ -67,9 +67,11 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show()
     {
-        //
+        $agendas = Agenda::all();
+
+        return View('agenda.show', compact('agendas'));
     }
 
     /**

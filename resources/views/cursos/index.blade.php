@@ -9,7 +9,7 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="table table-striped">
+  <table class="table table-striped teste" id="teste">
     <thead class="table-active">
         <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
         <tr>
@@ -39,5 +39,14 @@
         @endforeach
     </tbody>
   </table>
-<div>
+<div>  
 @endsection
+
+@section('scripts')
+    <script>
+      $(document).ready(function() {
+      $('.teste').DataTable();
+  } );
+
+    </script>
+@stop

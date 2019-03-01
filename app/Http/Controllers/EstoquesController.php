@@ -2,10 +2,10 @@
 
 namespace tenda\Http\Controllers;
 
-use tenda\FrequenciaTenda;
+use tenda\Estoque;
 use Illuminate\Http\Request;
 
-class FrequenciasTendaController extends Controller
+class EstoquesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class FrequenciasTendaController extends Controller
      */
     public function index()
     {
-        $frequenciasTenda = FrequenciaTenda::all();
+        $estoques = Estoque::all();
 
-        return view('frequenciasTenda.index', compact('frequenciasTenda'));
+        return view('estoque.index',compact('estoques'));
     }
 
     /**
@@ -57,9 +57,9 @@ class FrequenciasTendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Estoque $estoque)
     {
-        //
+        return view('estoque.edit', compact('estoque'));
     }
 
     /**

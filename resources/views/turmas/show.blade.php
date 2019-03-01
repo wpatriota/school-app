@@ -1,53 +1,36 @@
 @extends('adminlte::page')
 
+@section('scripts')
+    <script>
+      $('.teste').DataTable();
+    </script>
+@stop
+
 @section('content')
-<div class="card uper">
-  <div class="card-header">
-    Editar Turma
-  </div>
-  <div class="card-body">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div><br />
-    @endif
-      <form method="post" action="{{ route('turmas.update', $turma->id) }}">
-        @method('PATCH')
-        @csrf
-        <div class="form-group">
-          {!! Form::Label('curso', 'Curso:') !!}
-          <select class="form-control" name="id_curso">
-            @foreach($cursos as $curso)
-              <option value="{{$curso->id}}">{{$curso->nome}}</option>
-            @endforeach
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="nome">Nome :</label>
-          <input type="text" class="form-control" name="nome" value="{{ $turma->nome }}" />
-        </div>
-        <div class="form-group">
-          <label for="data_inicio">Data Início :</label>
-          <input type="text" class="form-control" name="data_inicio" value="{{ \Carbon\Carbon::parse($turma->data_inicio)->format('d/m/Y')}}" />
-        </div>
-        <div class="form-group">
-          <label for="data_inicio">Data Início :</label>
-          <input type="text" class="form-control" name="data_termino" value="{{ \Carbon\Carbon::parse($turma->data_termino)->format('d/m/Y')}}" />
-        </div>
-        <div class="form-group">
-          {!! Form::Label('professor', 'Professor:') !!}
-          <select class="form-control" name="id_professor">
-            @foreach($professores as $professor)
-              <option value="{{$professor->id}}">{{$professor->individuo->nome}}</option>
-            @endforeach
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </form>
-  </div>
-</div>
+<div class="uper">
+  @if(session()->get('success'))
+    <div class="alert alert-success">
+      {{ session()->get('success') }}  
+    </div><br />
+  @endif
+  <table class="table table-striped teste" id="teste">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nome</td>
+        <td>Data Matrícula</td>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach($alunos as $aluno)
+        <tr>
+            <td>{{$aluno->id}}</td>
+            <td>{{$aluno->individuo->nome . ' ' . $aluno->individuo->sobrenome}}</td>
+            <td>{{ \Carbon\Carbon::parse($aluno->data_matricula)->format('d/m/Y')}}</td>        
+        </tr>
+        @endforeach
+    </tbody>
+  </table>
+<div>
 @endsection
+

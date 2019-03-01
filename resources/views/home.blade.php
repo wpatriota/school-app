@@ -27,8 +27,8 @@
 		    <tbody>
 		        @foreach($agendas as $agenda)		        
 			        <tr>
-			        	<td><a href="{{ route('agenda.edit',$agenda->id)}}">{{$agenda->id}}</a></td>
-			            <td><a href="{{ route('agenda.edit',$agenda->id)}}">{{$agenda->nome_evento}}</a></td>
+			        	<td><a href="{{ route('agenda.show',$agenda->id)}}">{{$agenda->id}}</a></td>
+			            <td><a href="{{ route('agenda.show',$agenda->id)}}">{{$agenda->nome_evento}}</a></td>
 			            <td>{{ \Carbon\Carbon::parse($agenda->data)->format('d/m/Y')}}</td>
 			            <td>{{$agenda->horario}}</td> 
 			        </tr>

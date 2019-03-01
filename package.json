@@ -23,6 +23,8 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "datatables": "^1.10.18",
+        "fullcalendar": "^3.10.0",
         "vue-resource": "^1.5.1"
     }
 }

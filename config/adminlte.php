@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Sistema</b>TENDA',
+    'logo' => '<b>SIS</b>TENDA',
 
     'logo_mini' => '<b>A</b>LT',
 
@@ -109,7 +109,7 @@ return [
 
     'menu' => [
         [
-            'text' => 'Controle Cólegio',
+            'text' => 'Controle Colégio',
             'icon' => 'graduation-cap',
             'submenu' => [
                 [

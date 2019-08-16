@@ -32,5 +32,9 @@ Route::resource('gruposLimpeza', 'GruposLimpezaController')->middleware('auth');
 Route::resource('estoque', 'EstoquesController')->middleware('auth');
 Route::resource('tiposItem', 'TiposItemController')->middleware('auth');
 
+/*EXCEL*/
+Route::get('export', 'ExcelUserController@export')->name('export');
+Route::get('importExportView', 'ExcelUserController@importExportView');
+Route::post('import', 'ExcelUserController@import')->name('import');
 
 

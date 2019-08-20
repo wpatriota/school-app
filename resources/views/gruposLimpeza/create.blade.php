@@ -17,19 +17,12 @@
     @endif
       <form method="post" action="{{ route('cursos.store') }}">
         <div class="form-group">
-          @csrf
-          <label for="nome">Nome:</label>
-          <input type="text" class="form-control" name="nome"/>
-        </div>
-
-        <div class="form-group">
-          <label for="descricao">Descricao :</label>
-          <input type="text" class="form-control" name="descricao"/>
-        </div>
-
-        <div class="form-group">
-          <label for="valor_mensalidade">Valor Mensalidade :</label>
-          <input type="text" class="form-control" name="valor_mensalidade"/>
+          <label for="nome">Nome :</label>
+          <select class="select2-selection__rendered" name="state">
+            @foreach($individuo as $ind)
+          <option value="AL">{{$ind->nome}}</option>
+           @endforeach
+        </select>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

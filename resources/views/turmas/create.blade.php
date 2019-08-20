@@ -38,6 +38,18 @@
               <input type="text" class="form-control" name="valor_mensalidade"/>
           </div>
           <div class="form-group">
+              <label for="valor_mensalidade">Data de Inicio :</label>
+              <input type="text" class="form-control" name="valor_mensalidade"/>
+          </div>
+          <div class="form-group">
+              <label for="valor_mensalidade">Data de Término :</label>
+              <input type="text" class="form-control" name="valor_mensalidade"/>
+          </div>
+          <div class="form-group">
+              <label for="valor_mensalidade">Periodo de Matricula :</label>
+              <input type="text" class="form-control" name="valor_mensalidade"/>
+          </div>
+          <div class="form-group">
           {!! Form::Label('professor', 'Professor:') !!}
           <select class="form-control" name="id_professor">
             @foreach($professores as $professor)

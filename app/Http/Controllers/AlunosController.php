@@ -4,6 +4,9 @@ namespace tenda\Http\Controllers;
 
 use tenda\Aluno;
 use tenda\Turma;
+use tenda\Individuo;
+use tenda\FrequenciaColegio;
+
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -69,7 +72,11 @@ class AlunosController extends Controller
      */
     public function show($id)
     {
-        //
+        $aluno = Aluno::find($id);
+        $frequenciaColegio = FrequenciaColegio::where('id_aluno', $id)->get();
+        $individuo = Individuo::find($aluno->id_individuo);
+
+        return view('alunos.show', compact('aluno', 'individuo', 'frequenciaColegio'));
     }
 
     /**

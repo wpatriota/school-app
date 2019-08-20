@@ -3,6 +3,7 @@
 namespace tenda\Http\Controllers;
 
 use tenda\Agenda;
+use tenda\Turma;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $agendas = Agenda::all();
+        $turmas = Turma::where('periodo_matricula', 'S')->get();
 
-        return view('home',compact('agendas'));
+        return view('home',compact('agendas', 'turmas'));
     }
 }

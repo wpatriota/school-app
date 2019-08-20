@@ -32,7 +32,7 @@
                 <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Excluir</button>
+                  <button class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o curso {{$curso->nome}}?')" type="submit">Excluir</button>
                 </form>
             </td>
         </tr>

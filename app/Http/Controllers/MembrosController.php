@@ -45,14 +45,14 @@ class MembrosController extends Controller
             'status' => 'required'
         ]);
 
-        $aluno = new Membro([
+        $membro = new Membro([
             'id_individuo' => $individuo,
             'data_inicio' => $request->get('data_inicio'),
             'data_saida'=> $request->get('data_saida'),
             'status' => $request->get('status')
         ]);
 
-        $aluno->save();
+        $membro->save();
           
         return redirect('/membros')->with('success', 'Membro adicionado com sucesso');
     }
@@ -89,9 +89,23 @@ class MembrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Membro $membro)
     {
-        //
+        $request->validate([
+            'nome'=>'required',
+            'sobrenome'=> 'required',
+            'cpf' =>'required'
+        ]);
+
+        $membro->individuo->nome = $request->get('nome');
+        $membro->individuo->sobrenome = $request->get('sobrenome');
+        $membro->individuo->email = $request->get('email');
+        $membro->individuo->rg = $request->get('rg');
+        $membro->individuo->cpf = $request->get('cpf');
+
+        $membro->save();
+
+        return redirect('/membros')->with('success', 'Alterado com sucesso');
     }
 
     /**

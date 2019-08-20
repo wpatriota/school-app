@@ -11,10 +11,7 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-      <tr>
-        <a href="{{ route('entradasEstoque.index')}}" class="btn btn-success">Entradas</a>
-        <a href="{{ route('saidasEstoque.index')}}" class="btn btn-danger">Saídas</a>
-      </tr>
+        <tr><a href="{{ route('estoque.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
           <td>ID</td>
           <td>Tipo</td>

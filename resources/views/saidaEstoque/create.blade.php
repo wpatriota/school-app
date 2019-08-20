@@ -3,7 +3,7 @@
 @section('content')
 <div class="card uper">
   <div class="card-header">
-    Editar Evento
+    Novo Curso
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -15,20 +15,21 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('agenda.update', $agenda->id) }}">
-        @method('PATCH')
-        @csrf
+      <form method="post" action="{{ route('cursos.store') }}">
         <div class="form-group">
+          @csrf
           <label for="nome">Nome:</label>
-          <input type="text" class="form-control" name="nome" value="{{ $agenda->nome_evento }}" />
+          <input type="text" class="form-control" name="nome"/>
         </div>
+
         <div class="form-group">
-          <label for="descricao">Descrição :</label>
-          <input type="textarea" class="form-control" name="descricao" value="{{ $agenda->descricao }}" />
+          <label for="descricao">Descricao :</label>
+          <input type="text" class="form-control" name="descricao"/>
         </div>
+
         <div class="form-group">
           <label for="valor_mensalidade">Valor Mensalidade :</label>
-          <input type="textarea" class="form-control" name="valor_mensalidade" value="{{ $agenda->valor_mensalidade }}"   />
+          <input type="text" class="form-control" name="valor_mensalidade"/>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

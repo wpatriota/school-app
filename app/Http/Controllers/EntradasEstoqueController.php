@@ -2,12 +2,10 @@
 
 namespace tenda\Http\Controllers;
 
-use tenda\GrupoLimpeza;
-use tenda\Individuo;
-
+use tenda\EntradaEstoque;
 use Illuminate\Http\Request;
 
-class GruposLimpezaController extends Controller
+class EntradasEstoqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class GruposLimpezaController extends Controller
      */
     public function index()
     {
-        $gruposLimpeza = GrupoLimpeza::all();
+        $entradasEstoque = EntradaEstoque::all();
 
-        return view('gruposLimpeza.index',compact('gruposLimpeza'));
+        return view('entradaEstoque.index', compact('entradasEstoque'));
     }
 
     /**
@@ -28,9 +26,7 @@ class GruposLimpezaController extends Controller
      */
     public function create()
     {
-        $individuo = Individuo::all();
-
-        return view('gruposLimpeza.create', compact('individuo'));
+        //
     }
 
     /**

@@ -165,18 +165,18 @@ return [
                     'url'         => 'gruposLimpeza',
                     'icon'        => 'calendar',
                     'label_color' => 'success'
-                ],
-                [
-                    'text'        => 'Estoque',
-                    'url'         => 'estoque',
-                    'icon'        => 'calendar',
-                    'label_color' => 'success'
                 ]
             ]
-        ]
-        ,
+        ],
         [
-            'text'        => 'Agenda Geral',
+            'text'        => 'Estoque',
+            'url'         => 'estoque',
+            'icon'        => 'calendar',
+            'label_color' => 'success',
+            'url'         => 'estoque',
+        ],
+        [
+            'text'        => 'Agenda',
             'url'         => 'agenda',
             'icon'        => 'calendar',
             'label_color' => 'success'
@@ -184,21 +184,24 @@ return [
         [
             'text' => 'Financeiro',
             'icon' => 'money',
-            'submenu' => [
-                [
-                    'text' => 'entradas'
-                ],
-                [
-                    'text' => 'saidas'
-                ]
-                
-            ]
+            'url' => 'financeiro'
         ],
         [   
-            'text' => 'FRENTE DE CAIXA',
+            'text' => 'Frente de Caixa',
             'icon' => 'dollar text-green',
             'label_color' => 'success'
-        ]        
+        ],
+        [   
+            'text' => 'Configurações',
+            'icon' => 'dollar text-green',
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'usuários',
+                    'url' => 'usuarios'
+                ]
+            ]
+        ]         
         /*,
         [
             'text'        => 'Pages',

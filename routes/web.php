@@ -29,12 +29,22 @@ Route::resource('individuos', 'IndividuosController')->middleware('auth');
 Route::resource('frequenciasColegio', 'FrequenciasColegioController')->middleware('auth');
 Route::resource('frequenciasTenda', 'FrequenciasTendaController')->middleware('auth');
 Route::resource('gruposLimpeza', 'GruposLimpezaController')->middleware('auth');
-Route::resource('estoque', 'EstoquesController')->middleware('auth');
-Route::resource('tiposItem', 'TiposItemController')->middleware('auth');
 
-/*EXCEL*/
+/***** ESTOQUE *****/
+Route::resource('estoque', 'EstoquesController')->middleware('auth');
+Route::resource('entradasEstoque', 'entradasEstoqueController')->middleware('auth');
+Route::resource('saidasEstoque', 'saidaEstoqueController')->middleware('auth');
+/***** ESTOQUE *****/
+
+Route::resource('tiposItem', 'TiposItemController')->middleware('auth');
+Route::resource('usuarios', 'UsuariosController')->middleware('auth');
+Route::resource('perfis', 'PerfisController')->middleware('auth');
+
+/***** EXCEL *****/
 Route::get('export', 'ExcelUserController@export')->name('export');
 Route::get('importExportView', 'ExcelUserController@importExportView');
 Route::post('import', 'ExcelUserController@import')->name('import');
+/***** EXCEL *****/
 
+Route::get('exportarMembro', 'ExcelMembroController@export')->name('export');
 

@@ -32,7 +32,7 @@ class TurmasController extends Controller
         $cursos = Curso::all();
         $professores = Professor::all();
 
-        return view('turmas.create', compact('turma', 'cursos', 'professores'));
+        return view('turmas.create', compact('cursos', 'professores'));
     }
 
     /**

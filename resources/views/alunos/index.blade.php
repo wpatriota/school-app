@@ -22,7 +22,7 @@
         @foreach($alunos as $aluno)
         <tr>
             <td>{{$aluno->id}}</td>
-            <td>{{$aluno->individuo->nome . ' ' . $aluno->individuo->sobrenome}}</td>
+            <td><a href="{{ route('alunos.show',$aluno->id)}}">{{$aluno->individuo->nome . ' ' . $aluno->individuo->sobrenome}}</a></td>
             <td>{{$aluno->turma->nome}}</td>
             <td>{{ \Carbon\Carbon::parse($aluno->data_matricula)->format('d/m/Y')}}</td>
             <td><a href="{{ route('alunos.edit',$aluno->id)}}" class="btn btn-primary">Editar</a></td>

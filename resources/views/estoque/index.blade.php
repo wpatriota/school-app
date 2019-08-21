@@ -16,17 +16,15 @@
         <a href="{{ route('saidasEstoque.index')}}" class="btn btn-danger">Saídas</a>
       </tr>
         <tr>
-          <td>ID</td>
           <td>Tipo</td>
-          <td>Quantidade</td>
-          <td>Quantidade minima</td>
+          <td>Quantidade Disponível</td>
+          <td>Quantidade Mínima</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
         @foreach($estoques as $estoque)
         <tr>
-            <td>{{$estoque->id}}</td>
             <td>{{$estoque->tipoItem->descricao}}</td>
             <td>{{$estoque->quantidade}}</td>
             <td>{{$estoque->quantidade_minima}}</td>

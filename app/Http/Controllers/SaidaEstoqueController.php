@@ -2,6 +2,7 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\SaidaEstoque;
 use Illuminate\Http\Request;
 
 class SaidaEstoqueController extends Controller
@@ -13,7 +14,9 @@ class SaidaEstoqueController extends Controller
      */
     public function index()
     {
-        //
+        $saidasEstoque = SaidaEstoque::all();
+
+        return View('saidaEstoque.index', compact('saidasEstoque'));
     }
 
     /**

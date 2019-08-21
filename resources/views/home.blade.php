@@ -53,7 +53,7 @@
 			        <tr>
 			        	<td><a href="{{ route('cursos.show',$turma->curso->id)}}">{{$turma->curso->nome}}</a></td>
 			            <td><a href="{{ route('turmas.show',$turma->id)}}">{{$turma->nome}}</a></td>
-			            <td><a href="{{ route('agenda.create')}}" class="btn btn-success">Matrícula</a></td>
+			            <td><a href="{{ route('alunos.create')}}" class="btn btn-success">Matrícula</a></td>
 			        </tr>
 		    	
 		        @endforeach

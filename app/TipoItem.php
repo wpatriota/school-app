@@ -11,4 +11,14 @@ class TipoItem extends Model
     public function estoque(){
     	return $this->hasOne('tenda\Estoque', 'id');
     }
+
+    public function entradaEstoque()
+    {
+    	return $this->belongsTo('tenda\EntradaEstoque', 'id');
+    }
+
+    public function saidaEstoque()
+    {
+    	return $this->belongsTo('tenda\SaidaEstoque', 'id');
+    }
 }

@@ -2,9 +2,10 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\EntradaFinanceiro;
 use Illuminate\Http\Request;
 
-class entradasFinanceiroController extends Controller
+class EntradasFinanceiroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class entradasFinanceiroController extends Controller
      */
     public function index()
     {
-        //
+        $entradasFinanceiro = EntradaFinanceiro::all();
+
+        return view('entradaFinanceiro.index',compact('entradasFinanceiro'));
     }
 
     /**

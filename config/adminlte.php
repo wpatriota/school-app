@@ -184,7 +184,17 @@ return [
         [
             'text' => 'Financeiro',
             'icon' => 'money',
-            'url' => 'financeiro'
+            'url' => 'financeiro',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url' => 'entradasFinanceiro'
+                ],
+                [
+                    'text' => 'Saidas',
+                    'url' => 'saidasFinanceiro'
+                ]
+            ]
         ],
         [   
             'text' => 'Frente de Caixa',

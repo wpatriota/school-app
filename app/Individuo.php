@@ -45,6 +45,16 @@ class Individuo extends Model
 
     public function grupoLimpeza()
     {
-        return $this->hasOne('tenda\grupoLimpeza', 'id');
+        return $this->hasOne('tenda\GrupoLimpeza', 'id');
+    }
+
+    public function entradaEstoque()
+    {
+        return $this->hasMany('tenda\EntradaEstoque', 'id');
+    }
+
+    public function saidaEstoque()
+    {
+        return $this->hasMany('tenda\SaidaEstoque', 'id');
     }
 }

@@ -13,22 +13,22 @@
     <thead class="table-active">
         <tr><a href="{{ route('estoque.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
-          <td>ID</td>
-          <td>Tipo</td>
+          <td>Data</td>
+          <td>Material</td>
           <td>Quantidade</td>
-          <td>Quantidade minima</td>
+          <td>Responsável</td>
           <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($estoques as $estoque)
+        @foreach($saidasEstoque as $estoque)
         <tr>
-            <td>{{$estoque->id}}</td>
-            <td>{{$estoque->tipoItem->descricao}}</td>
-            <td>{{$estoque->quantidade}}</td>
-            <td>{{$estoque->quantidade_minima}}</td>
-            <td><a href="{{ route('estoque.edit',$estoque->id)}}" class="btn btn-primary">Editar</a></td>
-            <td>
+          <td>{{$estoque->data}}</td>
+          <td>{{$estoque->tipoItem->descricao}}</td>
+          <td>{{$estoque->quantidade}}</td>
+          <td>{{$estoque->individuo->nome}}</td>
+          <td><a href="{{ route('estoque.edit',$estoque->id)}}" class="btn btn-primary">Editar</a></td>
+          <td>
                 <form action="{{ route('estoque.destroy', $estoque->id)}}" method="post">
                   @csrf
                   @method('DELETE')

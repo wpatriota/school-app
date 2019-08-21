@@ -2,6 +2,7 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\SaidaFinanceiro;
 use Illuminate\Http\Request;
 
 class saidasFinanceiroController extends Controller
@@ -13,7 +14,9 @@ class saidasFinanceiroController extends Controller
      */
     public function index()
     {
-        //
+        $saidasFinanceiro = SaidaFinanceiro::all();
+
+        return view('saidaFinanceiro.index',compact('saidasFinanceiro'));
     }
 
     /**

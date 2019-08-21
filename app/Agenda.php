@@ -19,7 +19,7 @@ class Agenda extends Model
 
     public function tipoEvento()
     {
-        return $this->belongsTo('tenda\TipoEvento', 'id_evento');
+        return $this->hasOne('tenda\TipoEvento', 'id');
     }
 
     public function frequenciaColegio()

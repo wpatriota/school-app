@@ -3,6 +3,8 @@
 namespace tenda\Http\Controllers;
 
 use tenda\Curso;
+use tenda\Turma;
+
 use Illuminate\Http\Request;
 
 class CursosController extends Controller
@@ -62,7 +64,8 @@ class CursosController extends Controller
      */
     public function show(Curso $curso)
     {
-        //
+        $turmas = Turma::where('id_curso', $curso->id)->get();
+        return view('cursos.show', compact('curso', 'turmas'));
     }
 
     /**

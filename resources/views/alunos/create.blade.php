@@ -3,9 +3,6 @@
 @section('content')
 
 <div class="card uper">
-  <div class="card-header">
-    Novo Aluno
-  </div>
   <div class="card-body">
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -17,6 +14,34 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('alunos.store') }}">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {!! Form::Label('curso', 'Curso:') !!}
+              <select class="form-control" name="id_turma">
+              @foreach($cursos as $curso)
+                <option value="{{$curso->id}}">{{$curso->nome}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            {!! Form::Label('turma', 'Turma:') !!}
+              <select class="form-control" name="id_turma">
+              @foreach($turmas as $turma)
+                <option value="{{$turma->id}}">{{$turma->nome}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          {!! Form::Label('individuo', 'Individuo:') !!}
+            <select class="form-control" name="id_turma">
+            @foreach($individuos as $individuo)
+              <option value="{{$individuo->id}}">{{$individuo->nome}}</option>
+            @endforeach
+          </select>
+        </div>
+
         <div class="form-group">
           @csrf
           <label for="nome">Nome:</label>
@@ -98,14 +123,7 @@
           <input type="text" class="form-control" name="observacao"/>
         </div>
 
-        <div class="form-group">
-          {!! Form::Label('turma', 'Turma:') !!}
-            <select class="form-control" name="id_turma">
-            @foreach($turmas as $turma)
-              <option value="{{$turma->id}}">{{$turma->nome}}</option>
-            @endforeach
-          </select>
-        </div>
+        
 
         <div class="form-group">
           <label for="data_matricula">Data de Matrícula :</label>

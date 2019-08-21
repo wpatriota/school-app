@@ -11,25 +11,31 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-        <tr><a href="{{ route('entradasEstoque.create')}}" class="btn btn-primary">Nova entrada</a></tr>
+        <tr><a href="{{ route('estoque.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
           <td>ID</td>
-          <td>Doador</td>
+          <td>Responsável</td>
           <td>Tipo</td>
           <td>Quantidade</td>
-          <td>Un Medida</td>
-          <td>Data</td>
+          <td colspan="2">Ações</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($entradasEstoque as $entradasEstoque)
+        @foreach($entradasEstoque as $estoque)
         <tr>
-            <td>{{$entradasEstoque->id_entrada_estoque}}</td>
-            <td>{{$entradasEstoque->individuo->nome}}</td>
-            <td>{{$entradasEstoque->tipo->nome}}</td>
-            <td>{{$entradasEstoque->unidadeMedida->nome}}</td>
-            <td>{{$entradasEstoque->data_entrega}}</td>
-            <td><a href="{{ route('entradasEstoque.edit',$entradasEstoque->id)}}" class="btn btn-primary">Editar</a></td>            
+            <td>{{$estoque->id}}</td>
+            <td>{{$estoque->individuo->nome}}</td>
+            <td>{{$estoque->tipoItem->descricao}}</td>
+            <td>{{$estoque->quantidade}}</td>
+            <td>{{$estoque->data}}</td>
+            <td><a href="{{ route('estoque.edit',$estoque->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>
+                <form action="{{ route('estoque.destroy', $estoque->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Excluir</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

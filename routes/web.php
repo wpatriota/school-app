@@ -36,6 +36,11 @@ Route::resource('entradasEstoque', 'entradasEstoqueController')->middleware('aut
 Route::resource('saidasEstoque', 'saidaEstoqueController')->middleware('auth');
 /***** ESTOQUE *****/
 
+/***** FINANCEIRO *****/
+Route::resource('entradasFinanceiro', 'entradasFinanceiroController')->middleware('auth');
+Route::resource('saidasFinanceiro', 'saidasFinanceiroController')->middleware('auth');
+/***** FINANCEIRO *****/
+
 Route::resource('tiposItem', 'TiposItemController')->middleware('auth');
 Route::resource('usuarios', 'UsuariosController')->middleware('auth');
 Route::resource('perfis', 'PerfisController')->middleware('auth');

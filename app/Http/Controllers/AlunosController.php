@@ -4,6 +4,7 @@ namespace tenda\Http\Controllers;
 
 use tenda\Aluno;
 use tenda\Turma;
+use tenda\Curso;
 use tenda\Individuo;
 use tenda\FrequenciaColegio;
 
@@ -31,8 +32,9 @@ class AlunosController extends Controller
     public function create()
     {
         $turmas = Turma::all();
-
-        return view('alunos.create', compact('turmas'));
+        $cursos = Curso::all();
+        $individuos = Individuo::all();
+        return view('alunos.create', compact('turmas', 'cursos', 'individuos'));
     }
 
     /**

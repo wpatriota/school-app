@@ -15,6 +15,6 @@ class TipoEvento extends Model
 
     public function agenda()
     {
-        return $this->hasMany('tenda\Agenda', 'id');
+        return $this->belongsTo('tenda\Agenda', 'id');
     }
 }

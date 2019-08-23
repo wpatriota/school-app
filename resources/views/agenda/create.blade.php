@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="card uper">
-  <div class="card-header">
-    Novo Evento
-  </div>
   <div class="card-body">
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -16,34 +13,38 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('agenda.store') }}">
-        <div class="form-group">
-          {!! Form::Label('tipoEvento', 'Tipo de Evento:') !!}
-          <select class="form-control" name="id_tipo_evento">
-            @foreach($tiposEvento as $tipoEvento)
-              <option value="{{$tipoEvento->id}}">{{$tipoEvento->descricao}}</option>
-            @endforeach
-          </select>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {!! Form::Label('tipoEvento', 'Tipo de Evento:') !!}
+            <select class="form-control" name="id_tipo_evento">
+              @foreach($tiposEvento as $tipoEvento)
+                <option value="{{$tipoEvento->id}}">{{$tipoEvento->descricao}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group col-md-8">
+            @csrf
+            <label for="nome_evento">Nome:</label>
+            <input type="text" class="form-control" name="nome_evento"/>
+          </div>
         </div>
 
-        <div class="form-group">
-          @csrf
-          <label for="nome_evento">Nome:</label>
-          <input type="text" class="form-control" name="nome_evento"/>
-        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="data">Data :</label>
+            <input type="text" class="form-control" name="data"/>
+          </div>
 
-        <div class="form-group">
-          <label for="data">Data :</label>
-          <input type="text" class="form-control" name="data"/>
-        </div>
+          <div class="form-group col-md-4">
+            <label for="horario">Horário :</label>
+            <input type="text" class="form-control" name="horario"/>
+          </div>
 
-        <div class="form-group">
-          <label for="horario">Horário :</label>
-          <input type="text" class="form-control" name="horario"/>
-        </div>
-
-        <div class="form-group">
-          <label for="evento_publico">Evento Público :</label>
-          <input type="text" class="form-control" name="evento_publico"/>
+          <div class="form-group col-md-4">
+            <label for="evento_publico">Evento Público :</label>
+            <input type="text" class="form-control" name="evento_publico"/>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>

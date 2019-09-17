@@ -109,6 +109,13 @@ return [
 
     'menu' => [
         [
+            'search' => true,
+            'href' => 'test',  //form action
+            'method' => 'POST', //form method
+            'input_name' => 'menu-search-input', //input name
+            'text' => 'Busca', //input placeholder
+        ],
+        [
             'text' => 'Controle Colégio',
             'icon' => 'graduation-cap',
             'submenu' => [

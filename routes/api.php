@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use tenda\Agenda;
+use tenda\Curso;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +16,22 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+/*AGENDA*/
+Route::get('agenda', function(){
+	return Agenda::all();
+});
+
+Route::get('agenda/{id}', function($id){
+	return Agenda::find($id);
+});
+
+/*CURSO*/
+Route::get('curso', function(){
+	return Curso::all();
+});
+
+Route::get('curso/{id}', function($id){
+	return Curso::find($id);
 });

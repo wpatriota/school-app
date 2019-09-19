@@ -175,7 +175,8 @@ return [
         tenda\Providers\EventServiceProvider::class,
         tenda\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class
     ],
 
     /*

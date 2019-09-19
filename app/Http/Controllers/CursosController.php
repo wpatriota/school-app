@@ -52,7 +52,11 @@ class CursosController extends Controller
         ]);
 
         $curso->save();
-          
+
+        /* LOG */
+        activity()->log('Curso Adicionado');
+        /* LOG */
+        
         return redirect('/cursos')->with('success', 'Curso adicionado com sucesso');
     }
 

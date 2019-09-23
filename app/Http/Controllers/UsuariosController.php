@@ -56,4 +56,27 @@ class UsuariosController extends Controller
         return view('profile', array('user' => Auth::user()) );
 
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {        
+        $request->validate([
+            'name'=>'required',
+            'email'
+        ]);
+
+        $user = new User([
+            'name' => $request->get('nome'),
+            'email' => $request->get('email'),
+            'password' => $request->get('cpf')
+        ]);
+
+        $user->save();
+        return $user->id;
+    }
 }

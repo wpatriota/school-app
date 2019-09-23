@@ -65,8 +65,12 @@
         </div>
 
         <div class="form-group col-md-4">
-          <label for="estado">Estado :</label>
-          <input type="text" class="form-control" name="estado"/>
+          {!! Form::Label('estado', 'Estado:') !!}
+            <select class="form-control" name="id_estado">
+              @foreach($uf as $estado)
+                <option value="{{$estado->id}}">{{$estado->nome}}</option>
+              @endforeach
+            </select>
         </div>
 
         <div class="form-group col-md-4">
@@ -97,7 +101,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <input type="text" class="form-control" data-inputmask="mask: (999) 99999-9999" data-mask="">
+                  <input type="text" class="form-control" data-inputmask="mask: (999) 99999-9999" data-mask="mask: (999) 99999-9999">
                 </div>
                 <!-- /.input group -->
               </div>

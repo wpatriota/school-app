@@ -6,6 +6,7 @@ use tenda\Aluno;
 use tenda\Turma;
 use tenda\Curso;
 use tenda\Individuo;
+use tenda\User;
 use tenda\FrequenciaColegio;
 
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class AlunosController extends Controller
         $turmas = Turma::all();
         $cursos = Curso::all();
         $individuos = Individuo::all();
+        
         return view('alunos.create', compact('turmas', 'cursos', 'individuos'));
     }
 
@@ -46,8 +48,17 @@ class AlunosController extends Controller
     public function store(Request $request)
     {
         $individuoController = new IndividuosController();
-        $individuo = $individuoController->store($request);
+        $usuariosController = new usuariosController();
 
+        /* Add indivíduo*/
+        $individuo = $individuoController->store($request);
+        /* Add indivíduo*/
+
+        /* Add user*/
+        $usuario = $usuariosController->store($request);
+        /* Add user*/
+
+        /*Add Aluno*/
         $request->validate([
             'id_turma'=> 'required',
             'data_matricula' => 'required',
@@ -62,8 +73,9 @@ class AlunosController extends Controller
         ]);
 
         $aluno->save();
+        /*Add Aluno*/
           
-        return redirect('/alunos')->with('success', 'Aluno adicionado com sucesso');
+        return redirect('/alunos')->with('success', 'Matrícula efetuada com sucesso');
     }
 
     /**

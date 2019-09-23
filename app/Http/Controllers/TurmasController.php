@@ -52,7 +52,9 @@ class TurmasController extends Controller
           $turma = new Turma([
             'id_curso' => $request->get('id_curso'),
             'nome'=> $request->get('nome'),
-            'data_inicio'=> $request->get('data_inicio')
+            'data_inicio'=> $request->get('data_inicio'),
+            'periodo_matricula_de'=> $request->get('periodo_matricula_de'),
+            'periodo_matricula_ate'=> $request->get('periodo_matricula_ate'),
           ]);
 
           $turma->save();

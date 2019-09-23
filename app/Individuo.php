@@ -57,4 +57,9 @@ class Individuo extends Model
     {
         return $this->hasMany('tenda\SaidaEstoque', 'id');
     }
+
+    public function uf()
+    {
+        return $this->hasOne('tenda\Uf', 'id');
+    }
 }

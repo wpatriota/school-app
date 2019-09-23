@@ -4,6 +4,7 @@ namespace tenda\Http\Controllers;
 
 use tenda\Individuo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class IndividuosController extends Controller
 {
@@ -38,25 +39,27 @@ class IndividuosController extends Controller
         $request->validate([
             'nome'=>'required',
             'user_id',
-            'sobrenome'=> 'required',
-            'rg'=> 'required',
+            'sobrenome',
+            'rg',
             'cpf'=> 'required',
             'email'=> 'required',
-            'telefone'=> 'required',
-            'celular'=> 'required',
-            'endereco'=> 'required',
-            'bairro'=> 'required',
-            'cidade'=> 'required',
-            'estado'=> 'required',
-            'cep'=> 'required',
-            'data_nascimento'=> 'required',
-            'estado_civil'=> 'required',
-            'profissao'=> 'required',
-            'observacao' => 'required'
+            'telefone',
+            'celular',
+            'endereco',
+            'bairro',
+            'cidade',
+            'id_estado',
+            'cep',
+            'data_nascimento',
+            'estado_civil',
+            'profissao',
+            'observacao'
         ]);
 
+        $dataNascimento = Carbon::createFromFormat('d/m/Y', $request->data_nascimento);
+
         $individuo = new Individuo([
-            'nome' => $request->get('nome'),
+            'nome' => $request->nome,
             'user_id' => $request->get('user_id'),
             'sobrenome' => $request->get('sobrenome'),
             'rg' => $request->get('rg'),
@@ -67,9 +70,9 @@ class IndividuosController extends Controller
             'endereco' => $request->get('endereco'),
             'bairro' => $request->get('bairro'),
             'cidade' => $request->get('cidade'),
-            'estado' => $request->get('estado'),
+            'id_estado' => $request->get('id_estado'),
             'cep' => $request->get('cep'),
-            'data_nascimento' => $request->get('data_nascimento'),
+            'data_nascimento' => $dataNascimento->format('Y-m-d'),
             'estado_civil' => $request->get('estado_civil'),
             'profissao' => $request->get('profissao'),
             'observacao' => $request->get('observacao')

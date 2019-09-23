@@ -5,6 +5,7 @@ namespace tenda\Http\Controllers;
 use tenda\Professor;
 use tenda\Individuo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ProfessoresController extends Controller
 {
@@ -44,10 +45,13 @@ class ProfessoresController extends Controller
             'data_inicio'=> 'required'
         ]);
 
+        $dataInicio = Carbon::createFromFormat('d/m/Y', $request->data_inicio);
+        $dataTermino = Carbon::createFromFormat('d/m/Y', $request->data_termino);
+
         $professor = new Professor([
             'id_individuo' => $request->get('id_individuo'),
-            'data_inicio'=> $request->get('data_inicio'),
-            'data_termino'=> $request->get('data_termino')
+            'data_inicio'=> $dataInicio->format('Y-m-d'),
+            'data_termino'=> $dataTermino->format('Y-m-d')
         ]);
 
         $professor->save();

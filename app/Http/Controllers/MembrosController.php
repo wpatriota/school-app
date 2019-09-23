@@ -4,7 +4,9 @@ namespace tenda\Http\Controllers;
 
 use tenda\Membro;
 use tenda\Individuo;
+use tenda\Uf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class MembrosController extends Controller
 {
@@ -27,7 +29,8 @@ class MembrosController extends Controller
      */
     public function create()
     {
-        return view('membros.create');
+        $uf = Uf::All();
+        return view('membros.create', compact('uf'));
     }
 
     /**
@@ -45,10 +48,13 @@ class MembrosController extends Controller
             'status' => 'required'
         ]);
 
+        $dataInicio = Carbon::createFromFormat('d/m/Y', $request->data_inicio);
+        $dataTermino = Carbon::createFromFormat('d/m/Y', $request->data_saida);
+
         $membro = new Membro([
             'id_individuo' => $individuo,
-            'data_inicio' => $request->get('data_inicio'),
-            'data_saida'=> $request->get('data_saida'),
+            'data_inicio' => $dataInicio->format('Y-m-d'),
+            'data_saida'=> $dataTermino->format('Y-m-d'),
             'status' => $request->get('status')
         ]);
 

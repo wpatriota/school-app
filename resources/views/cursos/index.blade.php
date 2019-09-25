@@ -13,7 +13,6 @@
     <thead class="table-active">
         <tr><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></tr>
         <tr>
-          <td>ID</td>
           <td>Nome</td>
           <td>Descrição</td>
           <td>Valor Mensalidade</td>
@@ -23,7 +22,6 @@
     <tbody>
         @foreach($cursos as $curso)
         <tr>
-            <td>{{$curso->id}}</td>
             <td>{{$curso->nome}}</td>
             <td>{{$curso->descricao}}</td>
             <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>

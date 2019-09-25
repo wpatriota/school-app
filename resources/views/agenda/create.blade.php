@@ -43,7 +43,10 @@
 
           <div class="form-group col-md-4">
             <label for="evento_publico">Evento Público :</label>
-            <input type="text" class="form-control" name="evento_publico"/>
+            <select type="text" class="form-control" name="evento_publico">
+              <option value="S">Sim</option>
+              <option value="N">Não</option>
+            </select>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>

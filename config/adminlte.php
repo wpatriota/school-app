@@ -106,8 +106,16 @@ return [
     | layout. The 'can' is a filter on Laravel's built in Gate functionality.
     |
     */
-
     'menu' => [
+        [
+            'text'        => 'Meus Cursos',
+            'url'         => 'meus-cursos',
+            'icon'        => 'book',
+            'label_color' => 'success'
+        ]
+    ],
+
+    'menu_dashboard' => [
         [
             'search' => true,
             'href' => 'test',  //form action

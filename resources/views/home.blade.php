@@ -9,60 +9,33 @@
 @stop
 
 @section('content')
-<div class="col-md-6">
-	<div class="box ">
-		<div class="box-header">
-			<h3 class="box-title">Próximos Eventos</h3>
-			<a href="{{ route('agenda.create')}}" class="btn btn-primary">Adicionar Evento</a>
-		</div>
-		 <table class="table table-condensed">
-		    <thead>
-		    	<tr>
-		          	<td>Nome</td>
-		          	<td>Data</td>
-		          	<td>Horário</td>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        @foreach($agendas as $agenda)		        
-			        <tr>
-			            <td><a href="{{ route('agenda.show',$agenda->id)}}">{{$agenda->nome_evento}}</a></td>
-			            <td>{{ \Carbon\Carbon::parse($agenda->data)->format('d/m/Y')}}</td>
-			            <td>{{$agenda->horario}}</td> 
-			        </tr>
-		    	
-		        @endforeach
-		    </tbody>
-		</table>
-	</div>	
-</div>
-<div class="col-md-6">
-	<div class="box ">
-		<div class="box-header with-border">
-           	<h3 class="box-title">Turmas Abertas</h3>
+    <div class="col-md-6">
+    	<div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Avisos</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                @foreach($avisos as $aviso)   
+                <div class="box box-success">{{$aviso->texto}}</div>
+                @endforeach
+            </div><!-- /.box-body -->
         </div>
-		 <table class="table table-condensed">
-		    <thead>
-		    	<tr>
-		          	<td>Curso</td>
-		          	<td>Turma</td>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        @foreach($turmas as $turma)		        
-			        <tr>
-			        	<td><a href="{{ route('cursos.show',$turma->curso->id)}}">{{$turma->curso->nome}}</a></td>
-			            <td><a href="{{ route('turmas.show',$turma->id)}}">{{$turma->nome}}</a></td>
-			            <td><a href="{{ route('alunos.create')}}" class="btn btn-success">Matrícula</a></td>
-			        </tr>
-		    	
-		        @endforeach
-		    </tbody>
-		</table>
-	</div>	
-</div>
+    </div>
+    <div class="col-md-6">
+        <div id='calendar'></div>
+    </div>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+<script type="text/javascript" src="/public/js/app.js"></script>
+    <script>
+        $(function() {
+            $('#calendar').fullCalendar({
+            })
+        });
+    </script>
 @stop

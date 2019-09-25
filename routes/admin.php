@@ -1,5 +1,5 @@
 <?php
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 Route::resource('cursos', 'CursosController')->middleware('auth');
 
 Route::resource('alunos', 'AlunosController')->middleware('auth');
@@ -35,4 +35,5 @@ Route::post('import', 'ExcelUserController@import')->name('import');
 /***** EXCEL *****/
 
 Route::get('exportarMembro', 'ExcelMembroController@export')->name('export');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 

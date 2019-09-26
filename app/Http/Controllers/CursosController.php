@@ -4,8 +4,10 @@ namespace tenda\Http\Controllers;
 
 use tenda\Curso;
 use tenda\Turma;
+use tenda\Aluno;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CursosController extends Controller
 {

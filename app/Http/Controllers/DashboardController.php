@@ -2,7 +2,11 @@
 
 namespace tenda\Http\Controllers;
 
+use tenda\Agenda;
+use tenda\Turma;
+use tenda\Aviso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -23,6 +27,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $agendas = Agenda::all();
+        $avisos = Aviso::all();
+        $turmas = Turma::where('aceita_matricula', 'S')->get();
+
+        return view('dashboard',compact('agendas', 'turmas', 'avisos'));
     }
 }

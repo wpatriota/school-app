@@ -20,7 +20,9 @@ class CreateTurmaTable extends Migration {
 			$table->date('data_inicio')->nullable();
 			$table->date('data_termino')->nullable();
 			$table->integer('id_professor')->nullable()->index('turma_ibfk_2');
-			$table->string('periodo_matricula', 1)->default('S');
+			$table->date('periodo_matricula_de');
+			$table->date('periodo_matricula_ate');
+			$table->string('aceita_matricula', 1)->default('N');
 			$table->timestamps();
 		});
 	}

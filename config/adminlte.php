@@ -108,78 +108,81 @@ return [
     */
     'menu' => [
         [
-            'text'        => 'Meus Cursos',
-            'url'         => 'meus-cursos',
-            'icon'        => 'book',
-            'label_color' => 'success'
-        ]
-    ],
-
-    'menu_dashboard' => [
-        [
             'search' => true,
             'href' => 'test',  //form action
             'method' => 'POST', //form method
             'input_name' => 'menu-search-input', //input name
             'text' => 'Busca', //input placeholder
+            'role' => 'admin'
         ],
         [
             'text' => 'Controle Colégio',
             'icon' => 'graduation-cap',
+            'role' => 'admin',
+            'icon_color' => 'red',
             'submenu' => [
                 [
                     'text'        => 'Cursos',
                     'url'         => 'cursos',
                     'icon'        => 'book',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Turmas',
                     'url'         => 'turmas',
                     'icon'        => 'book',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Alunos',
                     'url'         => 'alunos',
                     'icon'        => 'user',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Professores',
                     'url'         => 'professores',
                     'icon'        => 'book',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Frequencia',
                     'url'         => 'frequenciasColegio',
                     'icon'        => 'book',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ]   
             ]
         ],
         [
             'text' => 'Controle Tenda',
             'icon' => 'university',
+            'role' => 'admin',
             'submenu' => [
                 [
                     'text'        => 'Membros',
                     'url'         => 'membros',
                     'icon'        => 'users',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Frequencia',
                     'url'         => 'frequenciasTenda',
                     'icon'        => 'calendar',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ],
                 [
                     'text'        => 'Grupos de Limpeza',
                     'url'         => 'gruposLimpeza',
                     'icon'        => 'calendar',
-                    'label_color' => 'success'
+                    'label_color' => 'success',
+                    'role'        => 'admin',
                 ]
             ]
         ],
@@ -189,114 +192,52 @@ return [
             'icon'        => 'calendar',
             'label_color' => 'success',
             'url'         => 'estoque',
+            'role'        => 'admin'
         ],
         [
             'text'        => 'Agenda',
             'url'         => 'agenda',
             'icon'        => 'calendar',
-            'label_color' => 'success'
+            'label_color' => 'success',
+            'role'        => 'admin',
         ],
         [
             'text' => 'Financeiro',
             'icon' => 'money',
-            'url' => 'financeiro',
+            'url'  => 'financeiro',
+            'role' => 'admin',
             'submenu' => [
                 [
                     'text' => 'Entradas',
-                    'url' => 'entradasFinanceiro'
+                    'url'  => 'entradasFinanceiro',
+                    'role' => 'admin',
                 ],
                 [
                     'text' => 'Saidas',
-                    'url' => 'saidasFinanceiro'
+                    'url' => 'saidasFinanceiro',
+                    'role' => 'admin',
                 ]
             ]
         ],
         [   
             'text' => 'Frente de Caixa',
             'icon' => 'dollar text-green',
-            'label_color' => 'success'
+            'label_color' => 'success',
+            'role'        => 'admin',
         ],
         [   
             'text' => 'Configurações',
             'icon' => 'dollar text-green',
             'label_color' => 'success',
+            'role'        => 'admin',
             'submenu' => [
                 [
                     'text' => 'usuários',
-                    'url' => 'usuarios'
+                    'url' => 'usuarios',
+                    'role'  => 'admin',
                 ]
             ]
-        ]         
-        /*,
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
-            'submenu' => [
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],*/
+        ]                 
     ],
 
     /*
@@ -317,6 +258,7 @@ return [
         JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        tenda\Menu\DynamicMenu::class
     ],
 
     /*
@@ -330,9 +272,33 @@ return [
     |
     */
 
-    'plugins' => [
-        'datatables' => true,
-        'select2'    => true,
-        'chartjs'    => true
+    'plugins' => [        
+        [
+            'name' => 'Moment',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js',
+                ]
+            ],
+        ],
+        [
+            'name' => 'FullCalendar',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css',
+                ],
+            ],
+        ],
     ],
 ];

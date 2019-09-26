@@ -2,11 +2,10 @@
 
 @extends('adminlte::page')
 
+{{config(['adminlte.layout' => 'top-nav'])}}
+
 @section('title', 'Sistema Tenda')
 
-@section('content_header')
-    
-@stop
 
 @section('content')
     <div class="col-md-6">
@@ -26,12 +25,7 @@
     </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
-<script type="text/javascript" src="/public/js/app.js"></script>
     <script>
         $(function() {
             $('#calendar').fullCalendar({

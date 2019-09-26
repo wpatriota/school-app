@@ -3,6 +3,7 @@
 namespace tenda;
 
 use Illuminate\Database\Eloquent\Model;
+use tenda\User;
 
 class Turma extends Model
 {
@@ -27,5 +28,9 @@ class Turma extends Model
     public function professor()
     {
         return $this->hasOne('tenda\Professor', 'id');
+    }
+
+    public function getAlunoByUser(User $user){
+        
     }
 }

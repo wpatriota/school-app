@@ -30,6 +30,11 @@ class UsuariosController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    public function isAdmin()
+    {
+       return $this->hasRole('admin');
+    } 
+
     /**
      * Show the form for creating a new resource.
      *

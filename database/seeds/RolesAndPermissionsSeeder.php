@@ -18,13 +18,16 @@ class RolesAndPermissionsSeeder extends Seeder
 
 	    Role::create(['name' => 'user']);
 	    /** @var \App\User $user */
-	    $user = factory(\App\User::class)->create();
+	    $user = factory(\tenda\User::class)->create([
+	        'name' => 'Aluno',
+	        'email' => 'user@user.com.br',
+	    ]);
 
 	    $user->assignRole('user');
 	    Role::create(['name' => 'admin']);
 
 	    /** @var \App\User $user */
-	    $admin = factory(\App\User::class)->create([
+	    $admin = factory(\tenda\User::class)->create([
 	        'name' => 'Administrador',
 	        'email' => 'admin@admin.com.br',
 	    ]);

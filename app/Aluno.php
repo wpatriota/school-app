@@ -3,6 +3,8 @@
 namespace tenda;
 
 use Illuminate\Database\Eloquent\Model;
+use tenda\turma;
+use tenda\Individuo;
 
 class Aluno extends Model
 {
@@ -29,5 +31,9 @@ class Aluno extends Model
     public function frequenciaColegio()
     {
         return $this->hasMany('tenda\FrequenciaColegio', 'id');
+    }
+
+    public function getTurmas(){
+        return Turma::where('id_individuo', Individuo::where('user_id', Auth::user()->id)->get())->get();
     }
 }

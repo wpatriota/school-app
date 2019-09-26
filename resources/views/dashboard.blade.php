@@ -1,6 +1,6 @@
 {{-- resources/views/admin/dashboard.blade.php --}}
 
-@extends('adminlte::pagedashboard')
+@extends('adminlte::page')
 
 @section('title', 'Sistema Tenda')
 
@@ -61,8 +61,4 @@
 		</table>
 	</div>	
 </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop

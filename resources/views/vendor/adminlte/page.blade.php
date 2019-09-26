@@ -1,8 +1,7 @@
 @extends('adminlte::master')
 
 @section('adminlte_css')
-    <link rel="stylesheet"
-          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">     
     @stack('css')
     @yield('css')
 @stop
@@ -58,13 +57,13 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                              <img src="{{url('/images/Auth::user()->avatar')}}" class="user-image" alt="User Image">
+                              <img src="{{ asset('/images')}}/{{ Auth::user()->avatar}}" class="user-image" alt="User Image">
                               <span class="hidden-xs">{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu">
                               <!-- User image -->
                               <li class="user-header">
-                                <img src="{{url('/images/Auth::user()->avatar')}}" class="img-circle" alt="User Image">
+                                <img src="{{ asset('/images')}}/{{ Auth::user()->avatar}}" class="img-circle" alt="User Image">
 
                                 <p>
                                   {{ Auth::user()->name }}

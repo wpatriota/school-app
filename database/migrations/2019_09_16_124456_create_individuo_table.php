@@ -22,11 +22,11 @@ class CreateIndividuoTable extends Migration {
 			$table->string('cpf', 50);
 			$table->string('email');
 			$table->string('telefone', 50);
-			$table->string('celular', 50);
+			$table->string('celular', 50)->nullable();
 			$table->string('endereco');
 			$table->string('bairro');
 			$table->string('cidade');
-			$table->string('estado', 50);
+			$table->integer('id_estado')->default(0)->index('id_estado');
 			$table->string('cep', 15);
 			$table->date('data_nascimento');
 			$table->string('estado_civil');

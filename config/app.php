@@ -177,7 +177,6 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class
     ],
 

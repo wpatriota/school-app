@@ -11,7 +11,7 @@
     <thead>
       <tr>
         <a href="{{ route('usuarios.create')}}" class="btn btn-primary">Novo Usuário</a>
-        <a href="{{ route('usuarios.create')}}" class="btn btn-success">Importar XLS</a>
+        <a href="{{ route('importExportView')}}" class="btn btn-success">Importar XLS</a>
         <a href="{{ route('export')}}" class="btn btn-success">Exportar XLS</a>
       </tr>
       <tr>

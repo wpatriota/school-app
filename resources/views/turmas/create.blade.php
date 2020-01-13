@@ -15,10 +15,10 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('turmas.create') }}">
+      <form method="post" action="{{ route('turmas.store') }}">
           <div class="form-group">
             {!! Form::Label('curso', 'Curso:') !!}
-            <select class="form-control" name="id_curso">
+            <select class="form-control" name="id_curso" id="id_curso">
               @foreach($cursos as $curso)
                 <option value="{{$curso->id}}">{{$curso->nome}}</option>
               @endforeach
@@ -39,7 +39,7 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="data_inicio">
+              <input type="text" class="form-control pull-right" id="data_inicio" name="data_inicio">
             </div>
           </div>
 
@@ -49,7 +49,7 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="data_termino">
+              <input type="text" class="form-control pull-right" id="data_termino" name="data_termino">
             </div>
           </div>
 
@@ -59,7 +59,7 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="periodo_matricula_de">
+              <input type="text" class="form-control pull-right" id="periodo_matricula_de" name="periodo_matricula_de">
             </div>
           </div>
 
@@ -69,7 +69,7 @@
               <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="periodo_matricula_ate">
+              <input type="text" class="form-control pull-right" id="periodo_matricula_ate" name="periodo_matricula_ate">
             </div>
           </div>
 

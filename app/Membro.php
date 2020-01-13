@@ -3,6 +3,7 @@
 namespace tenda;
 
 use Illuminate\Database\Eloquent\Model;
+use tenda\Individuo;
 
 class Membro extends Model
 {

@@ -6,6 +6,7 @@ use tenda\Turma;
 use tenda\Curso;
 use tenda\Professor;
 use tenda\Aluno;
+use tenda\Agenda;
 use Illuminate\Http\Request;
 
 class TurmasController extends Controller
@@ -46,18 +47,32 @@ class TurmasController extends Controller
         $request->validate([
             'id_curso'=>'required',
             'nome'=> 'required',
-            'data_inicio' => 'required'
+            'data_inicio' => 'required',
+            'data_termino' => 'required'
         ]);
 
           $turma = new Turma([
             'id_curso' => $request->get('id_curso'),
             'nome'=> $request->get('nome'),
-            'data_inicio'=> $request->get('data_inicio'),
-            'periodo_matricula_de'=> $request->get('periodo_matricula_de'),
-            'periodo_matricula_ate'=> $request->get('periodo_matricula_ate'),
+            'descricao'=> $request->get('descricao'),
+            'data_inicio'=> date('Y-m-d', strtotime($request->get('data_inicio'))),
+            'data_termino'=> date('Y-m-d', strtotime($request->get('data_termino'))),
+            'id_professor' => $request->get('id_professor'),
+            'dia_aula' => $request->get('dia_aula'),
+            'horario_aula' => $request->get('horario_aula'),
+            'periodo_matricula_de'=> date('Y-m-d', strtotime($request->get('periodo_matricula_de'))),
+            'periodo_matricula_ate'=> date('Y-m-d', strtotime($request->get('periodo_matricula_ate')))
           ]);
 
           $turma->save();
+
+          $agenda = new Agenda([
+            'id_tipo_evento' => 1,
+            'nome_evento'=> 'Aula - '. $request->get('nome'),
+            'data'=> $request->get('data_inicio'),
+            'horario'=> $request->get('horario_aula'),
+            'evento_publico'=> 'N'
+          ]);
           
           return redirect('/turmas')->with('success', 'Turma adicionada com sucesso');
     }

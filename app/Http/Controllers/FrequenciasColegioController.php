@@ -3,6 +3,8 @@
 namespace tenda\Http\Controllers;
 
 use tenda\FrequenciaColegio;
+use tenda\Turma;
+use tenda\Agenda;
 use Illuminate\Http\Request;
 
 class FrequenciasColegioController extends Controller
@@ -14,9 +16,10 @@ class FrequenciasColegioController extends Controller
      */
     public function index()
     {
-        $frequenciasColegio = FrequenciaColegio::all();
+        $turmas = Turma::all();
+        $eventos = Agenda::all();
 
-        return view('frequenciasColegio.index', compact('frequenciasColegio'));
+        return view('frequenciasColegio.index', compact('turmas', 'eventos'));
     }
 
     /**

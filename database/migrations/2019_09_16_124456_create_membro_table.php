@@ -17,7 +17,7 @@ class CreateMembroTable extends Migration {
 			$table->integer('id', true);
 			$table->integer('id_individuo')->index('id_individuo');
 			$table->date('data_inicio');
-			$table->date('data_saida');
+			$table->date('data_saida')->nullable();
 			$table->string('status', 1)->default('s');
 			$table->timestamps();
 		});

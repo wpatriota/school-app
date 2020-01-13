@@ -11,28 +11,39 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-        <tr><a href="{{ route('frequenciasColegio.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
-          <td>ID</td>
-          <td>Aluno</td>
-          <td>Evento</td>
-          <td colspan="2">Ações</td>
+          <td>Curso</td>
+          <td>Turma</td>
+          <td>Professor</td>
+          <td>Ação</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($frequenciasColegio as $frequenciaColegio)
+        @foreach($turmas as $turma)
         <tr>
-            <td>{{$frequenciaColegio->id}}</td>
-            <td>{{$frequenciaColegio->aluno->individuo->nome . ' ' . $frequenciaColegio->aluno->individuo->sobrenome}}</td>
-            <td>{{$frequenciaColegio->agenda->nome_evento}}</td>
-            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Editar</a></td>
-            <td>
-                <form action="{{ route('frequenciasColegio.destroy', $frequenciaColegio->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Excluir</button>
-                </form>
-            </td>
+            <td>{{$turma->curso->nome}}</td>
+            <td>{{$turma->nome}}</td>
+            <td>{{$turma->id_professor->individuo->nome}}</td>
+            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Lançar Frequencia</a></td>
+        </tr>
+        @endforeach
+    </tbody>
+  </table>
+
+  <table class="table table-striped">
+    <thead class="table-active">
+        <tr>
+          <td>Evento</td>
+          <td>Data</td>
+          <td>Ação</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($eventos as $evento)
+        <tr>
+            <td>{{$evento->nome_evento}}</td>
+            <td>{{$evento->data}}</td>
+            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Lançar Frequencia</a></td>
         </tr>
         @endforeach
     </tbody>

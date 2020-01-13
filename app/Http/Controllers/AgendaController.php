@@ -53,7 +53,7 @@ class AgendaController extends Controller
             'nome_evento'=> $request->get('nome_evento'),
             'data'=> $request->get('data'),
             'horario'=> $request->get('horario'),
-            'evento_publico'=> $request->get('evento_publico'),
+            'evento_publico'=> $request->get('evento_publico')
         ]);
 
         $agenda->save();

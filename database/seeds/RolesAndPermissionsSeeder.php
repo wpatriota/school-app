@@ -8,7 +8,8 @@ class RolesAndPermissionsSeeder extends Seeder
     /**
      * PARA EXECUTAR:
      * php artisan db:seed --class=RolesAndPermissionsSeeder
-     *
+     * pass: secret
+	 * 
      * @return void
      */
     public function run()

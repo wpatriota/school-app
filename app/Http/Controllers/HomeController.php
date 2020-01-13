@@ -35,7 +35,7 @@ class HomeController extends Controller
         }elseif($user->hasRole('user')){
             $agendas = Agenda::all();
             $avisos = Aviso::all();
-            $turmas = Turma::where('aceita_matricula', 'S')->get();
+            $turmas = Turma::all();
 
             $events = [];
             $events[] = Calendar::event('Event One', false, '2015-02-11T0800', '2015-02-12T0800', 0);

@@ -30,7 +30,7 @@
             <td>{{ \Carbon\Carbon::parse($turma->data_inicio)->format('d/m/Y')}}</td>
             <td>{{ \Carbon\Carbon::parse($turma->data_termino)->format('d/m/Y')}}</td>
             <td>{{$turma->professor->individuo->nome}}</td>
-            <td><span class="badge bg-green">{{$turma->periodo_matricula_de}}</span></td>
+            <td><span class="badge bg-green">{{ \Carbon\Carbon::parse($turma->periodo_matricula_de)->format('d/m/Y')}} á {{ \Carbon\Carbon::parse($turma->periodo_matricula_ate)->format('d/m/Y')}}</span></td>
             <td><a href="{{ route('turmas.edit',$turma->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('turmas.destroy', $turma->id)}}" method="post">

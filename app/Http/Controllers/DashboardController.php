@@ -29,7 +29,7 @@ class DashboardController extends Controller
     {
         $agendas = Agenda::all();
         $avisos = Aviso::all();
-        $turmas = Turma::where('aceita_matricula', 'S')->get();
+        $turmas = Turma::all();
 
         return view('dashboard',compact('agendas', 'turmas', 'avisos'));
     }

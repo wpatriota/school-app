@@ -30,7 +30,7 @@ class ExcelUserController extends Controller
     */
     public function import() 
     {
-        Excel::import(new UsersImport,request()->file('file'));
+        Excel::import(new UsersImport, request()->file('file'));
            
         return back();
     }

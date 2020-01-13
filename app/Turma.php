@@ -15,7 +15,10 @@ class Turma extends Model
         'nome',
         'data_inicio',
         'periodo_matricula_de',
-        'periodo_matricula_ate'
+        'periodo_matricula_ate',
+        'dia_aula',
+        'horario_aula',
+        'frequencia_minima'
     ];
 
     public function aluno()
@@ -25,12 +28,12 @@ class Turma extends Model
 
     public function curso()
     {
-        return $this->hasOne('tenda\Curso', 'id');
+        return $this->belongsTo('tenda\Curso', 'id_curso');
     }
 
     public function professor()
     {
-        return $this->hasOne('tenda\Professor', 'id');
+        return $this->belongsTo('tenda\Professor', 'id_professor');
     }
 
     public function getAlunoByUser(User $user){

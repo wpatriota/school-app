@@ -38,6 +38,7 @@ class CreateIndividuoTable extends Migration {
 			$table->date('data_nascimento');
 			$table->string('estado_civil')->nullable();
 			$table->string('profissao')->nullable();
+			$table->integer('dia_mensalidade')->nullable();
 			$table->text('observacao', 65535)->nullable();
 			$table->timestamps();
 		});

@@ -23,8 +23,8 @@
         <tr>
             <td>{{$turma->curso->nome}}</td>
             <td>{{$turma->nome}}</td>
-            <td>{{$turma->id_professor->individuo->nome}}</td>
-            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Lançar Frequencia</a></td>
+            <td>{{$turma->professor->individuo->nome}}</td>
+            <td><a href="" class="btn btn-primary">Lançar Frequencia</a></td>
         </tr>
         @endforeach
     </tbody>
@@ -43,7 +43,7 @@
         <tr>
             <td>{{$evento->nome_evento}}</td>
             <td>{{$evento->data}}</td>
-            <td><a href="{{ route('frequenciasColegio.edit',$frequenciaColegio->id)}}" class="btn btn-primary">Lançar Frequencia</a></td>
+            <td><a href="" class="btn btn-primary">Lançar Frequencia</a></td>
         </tr>
         @endforeach
     </tbody>

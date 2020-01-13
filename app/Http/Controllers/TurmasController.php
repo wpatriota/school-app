@@ -59,7 +59,8 @@ class TurmasController extends Controller
             'data_termino'=> date('Y-m-d', strtotime($request->get('data_termino'))),
             'id_professor' => $request->get('id_professor'),
             'dia_aula' => $request->get('dia_aula'),
-            'horario_aula' => $request->get('horario_aula'),
+            'horario_aula' =>  now(),
+            'frequencia_minima' => $request->get('frequencia_minima'),
             'periodo_matricula_de'=> date('Y-m-d', strtotime($request->get('periodo_matricula_de'))),
             'periodo_matricula_ate'=> date('Y-m-d', strtotime($request->get('periodo_matricula_ate')))
           ]);
@@ -69,11 +70,13 @@ class TurmasController extends Controller
           $agenda = new Agenda([
             'id_tipo_evento' => 1,
             'nome_evento'=> 'Aula - '. $request->get('nome'),
-            'data'=> $request->get('data_inicio'),
-            'horario'=> $request->get('horario_aula'),
+            'data'=> date('Y-m-d', strtotime($request->get('data_inicio'))),
+            'horario'=> now(),
             'evento_publico'=> 'N'
           ]);
           
+          $agenda->save();
+
           return redirect('/turmas')->with('success', 'Turma adicionada com sucesso');
     }
 

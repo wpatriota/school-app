@@ -24,7 +24,7 @@ class CreateTurmaTable extends Migration {
 			$table->date('periodo_matricula_ate');
 			$table->string('dia_aula');
 			$table->time('horario_aula', 6);
-			$table->integer('frequencia_minima', true);
+			$table->integer('frequencia_minima');
 			$table->timestamps();
 		});
 	}

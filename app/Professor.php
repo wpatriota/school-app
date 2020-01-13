@@ -17,11 +17,11 @@ class Professor extends Model
 
     public function individuo()
     {
-        return $this->hasOne('tenda\Individuo', 'id');
+        return $this->belongsTo('tenda\Individuo', 'id_individuo');
     }
 
     public function turma()
     {
-        return $this->belongsTo('tenda\Turma', 'id_professor');
+        return $this->hasMany('tenda\Turma', 'id');
     }
 }

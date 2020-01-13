@@ -74,14 +74,48 @@
           </div>
 
           <div class="form-group">
-          {!! Form::Label('professor', 'Professor:') !!}
-          <select class="form-control" name="id_professor">
-            @foreach($professores as $professor)
-              <option value="{{$professor->id}}">{{$professor->individuo->nome}}</option>
-            @endforeach
-          </select>
-        </div>
-          <button type="submit" class="btn btn-primary">Salvar</button>
+            {!! Form::Label('professor', 'Professor:') !!}
+            <select class="form-control" name="id_professor" id="id_professor">
+              @foreach($professores as $professor)
+                <option value="{{$professor->id}}">{{$professor->individuo->nome}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            {!! Form::Label('dia_aula', 'Dia da semana:') !!}
+            <select class="form-control" name="dia_aula" id="dia_aula">
+              <option value="domingo">Domingo</option>
+              <option value="segunda-feira">Segunda-feira</option>
+              <option value="terca-feira">Terça-feira</option>
+              <option value="quarta-feira">Quarta-feira</option>
+              <option value="quinta-feira">Quinta-feira</option>
+              <option value="sexta-feira">Sexta-feira</option>
+              <option value="sabado-feira">Sabado-feira</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="horario_aula">Horário Aula</label>
+            <div class="input-group date">
+              <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <input type="text" class="form-control pull-right" id="horario_aula" name="horario_aula">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="frequencia_minima">Frequencia Mínima</label>
+            <div class="input-group date">
+              <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <input type="text" class="form-control pull-right" id="frequencia_minima" name="frequencia_minima">
+            </div>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
 
       </form>
   </div>

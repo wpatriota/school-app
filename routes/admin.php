@@ -39,3 +39,4 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('autocomplete', 'IndividuosController@autocomplete')->name('autocomplete');
 
+Route::get('/frequenciaTurma/{turma}', ['uses' =>'frequenciasColegioController@frequenciaTurmaShow'])->name('frequenciaTurma');

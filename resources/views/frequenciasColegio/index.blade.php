@@ -24,7 +24,7 @@
             <td>{{$turma->curso->nome}}</td>
             <td>{{$turma->nome}}</td>
             <td>{{$turma->professor->individuo->nome}}</td>
-            <td><a href="" class="btn btn-primary">Lançar Frequencia</a></td>
+            <td><a href="{{ route('frequenciaTurma', $turma->id)}}" class="btn btn-primary">Lançar Frequencia</a></td>
         </tr>
         @endforeach
     </tbody>

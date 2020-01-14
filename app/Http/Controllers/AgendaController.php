@@ -4,6 +4,7 @@ namespace tenda\Http\Controllers;
 
 use tenda\Agenda;
 use tenda\TipoEvento;
+use tenda\Turma;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller
@@ -109,4 +110,6 @@ class AgendaController extends Controller
 
         return redirect('/agenda')->with('success', 'Evento removido com sucesso');
     }
+
+    
 }

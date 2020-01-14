@@ -87,4 +87,11 @@ class FrequenciasColegioController extends Controller
     {
         //
     }
+
+    public function frequenciaTurmaShow(Turma $turma)
+    {
+        $agenda = Agenda::where('id_turma', $turma->id)->get();
+
+        return view('frequenciasColegio.frequenciaTurma', compact('agenda'));
+    }
 }

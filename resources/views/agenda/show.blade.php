@@ -17,7 +17,6 @@
         <thead>
           <tr>
             <td>Id</td>
-            <td>Descrição</td>
             <td>nome</td>
             <td>Data</td>
             <td>horario</td>
@@ -27,7 +26,6 @@
         <tbody>
           <tr>
             <td>{{$agenda->id}}</td>
-            <td>{{$agenda->tipoEvento->descricao}}</td>
             <td>{{$agenda->nome_evento}}</td>
             <td>{{$agenda->data}}</td>
             <td>{{$agenda->horario}}</td>

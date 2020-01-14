@@ -32,6 +32,6 @@ class ExcelUserController extends Controller
     {
         Excel::import(new UsersImport, request()->file('file'));
            
-        return back();
+        return redirect('/usuarios')->with('success', 'Arquivo Importado com Sucesso');
     }
 }

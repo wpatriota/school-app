@@ -16,6 +16,7 @@ class CreateAgendaTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->integer('id_tipo_evento')->index('id_evento');
+			$table->integer('id_turma')->nullable()->index('id_turma');
 			$table->string('nome_evento');
 			$table->date('data');
 			$table->time('horario', 6);

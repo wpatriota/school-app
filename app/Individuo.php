@@ -61,5 +61,5 @@ class Individuo extends Model
     public function uf()
     {
         return $this->hasOne('tenda\Uf', 'id');
-    }
+    }    
 }

@@ -126,4 +126,13 @@ class IndividuosController extends Controller
     {
         //
     }
+
+    public function autocomplete(Request $request)
+    {
+        $data = Individuo::select("nome")
+                ->where("nome","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return json_encode($data);
+    }
 }

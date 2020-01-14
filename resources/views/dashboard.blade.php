@@ -5,7 +5,7 @@
 @section('title', 'Sistema Tenda')
 
 @section('content_header')
-    
+	
 @stop
 
 @section('content')

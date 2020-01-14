@@ -3,7 +3,7 @@
 @section('content')
 <div class="card uper">
   <div class="card-header">
-    Editar Curso
+    Editar Usuário
   </div>
   <div class="card-body">
     @if ($errors->any())

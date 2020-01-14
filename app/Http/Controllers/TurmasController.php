@@ -51,6 +51,7 @@ class TurmasController extends Controller
             'data_termino' => 'required'
         ]);
 
+        //dd($request);
           $turma = new Turma([
             'id_curso' => $request->get('id_curso'),
             'nome'=> $request->get('nome'),
@@ -69,6 +70,7 @@ class TurmasController extends Controller
 
           $agenda = new Agenda([
             'id_tipo_evento' => 1,
+            'id_turma' => $turma->id,
             'nome_evento'=> 'Aula - '. $request->get('nome'),
             'data'=> date('Y-m-d', strtotime($request->get('data_inicio'))),
             'horario'=> now(),
@@ -124,7 +126,7 @@ class TurmasController extends Controller
 
         $turma->id_curso = $request->get('id_curso');
         $turma->nome = $request->get('nome');
-        $turma->data_inicio = $request->get('data_inicio');
+        $turma->data_inicio = date('Y-m-d', strtotime($request->get('data_inicio')));
 
         $turma->save();
 

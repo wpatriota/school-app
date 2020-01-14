@@ -8,8 +8,8 @@
                     @csrf
                     <input type="file" name="file" class="form-control">
                     <br>
-                    <button class="btn btn-success">Import User Data</button>
-                    <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
+                    <button class="btn btn-success">Importar</button>
+                    <a class="btn btn-warning" href="{{ route('export') }}">Exportar</a>
                 </form>
             </div>
         </div>

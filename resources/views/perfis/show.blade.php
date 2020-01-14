@@ -58,6 +58,7 @@
         </tbody>
       </table>
 
+      @if($membro)
       <table class="table table-striped">
         <thead>
           <tr>
@@ -89,6 +90,7 @@
           @endforeach
         </tbody>
       </table>
+      @endif
   </div>
 </div>
 @endsection

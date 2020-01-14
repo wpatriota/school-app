@@ -30,10 +30,12 @@ Route::resource('perfis', 'PerfisController')->middleware('auth');
 
 /***** EXCEL *****/
 Route::get('export', 'ExcelUserController@export')->name('export');
-Route::get('importExportView', 'ExcelUserController@importExportView');
+Route::get('importExportView', 'ExcelUserController@importExportView')->name('importExportView');
 Route::post('import', 'ExcelUserController@import')->name('import');
 /***** EXCEL *****/
 
 Route::get('exportarMembro', 'ExcelMembroController@export')->name('export');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('autocomplete', 'IndividuosController@autocomplete')->name('autocomplete');
 

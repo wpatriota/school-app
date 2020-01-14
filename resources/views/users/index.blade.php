@@ -37,7 +37,7 @@
                 <span class="badge bg-red">INATIVO</span>
               @endif
             </td>
-            <td><a href="{{ route('usuarios.edit',$user->id)}}" class="btn btn-primary">Editar</a></td>
+            <td><a href="{{ route('usuarios.edit', $user->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('usuarios.destroy', $user->id)}}" method="post">
                   @csrf

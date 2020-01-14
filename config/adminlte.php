@@ -280,7 +280,18 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'
+                ]
+            ],
+        ],
+        [
+            'name' => 'TypeAhead',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"
                 ]
             ],
         ],
@@ -291,12 +302,12 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js'
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css'
                 ],
             ],
         ],

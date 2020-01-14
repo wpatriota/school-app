@@ -15,6 +15,7 @@ class AddForeignKeysToAgendaTable extends Migration {
 		Schema::table('agenda', function(Blueprint $table)
 		{
 			$table->foreign('id_tipo_evento', 'agenda_ibfk_1')->references('id')->on('tipo_evento')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_turma', 'agenda_ibfk_2')->references('id')->on('turma')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -29,6 +30,7 @@ class AddForeignKeysToAgendaTable extends Migration {
 		Schema::table('agenda', function(Blueprint $table)
 		{
 			$table->dropForeign('agenda_ibfk_1');
+			$table->dropForeign('agenda_ibfk_2');
 		});
 	}
 

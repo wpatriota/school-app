@@ -7,6 +7,7 @@ use tenda\Turma;
 use tenda\Curso;
 use tenda\Individuo;
 use tenda\User;
+use tenda\Uf;
 use tenda\FrequenciaColegio;
 
 use Illuminate\Http\Request;
@@ -35,8 +36,9 @@ class AlunosController extends Controller
         $turmas = Turma::all();
         $cursos = Curso::all();
         $individuos = Individuo::all();
+        $uf = Uf::All();
         
-        return view('alunos.create', compact('turmas', 'cursos', 'individuos'));
+        return view('alunos.create', compact('turmas', 'cursos', 'individuos', 'uf'));
     }
 
     /**

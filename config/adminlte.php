@@ -208,6 +208,16 @@ return [
             'role' => 'admin',
             'submenu' => [
                 [
+                    'text' => 'Contas a pagar',
+                    'url' => 'saidasFinanceiro',
+                    'role' => 'admin',
+                ],
+                [
+                    'text' => 'Contas a receber',
+                    'url' => 'saidasFinanceiro',
+                    'role' => 'admin',
+                ],
+                [
                     'text' => 'Entradas',
                     'url'  => 'entradasFinanceiro',
                     'role' => 'admin',

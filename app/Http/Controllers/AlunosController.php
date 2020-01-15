@@ -6,9 +6,9 @@ use tenda\Aluno;
 use tenda\Turma;
 use tenda\Curso;
 use tenda\Individuo;
-use tenda\User;
 use tenda\Uf;
 use tenda\FrequenciaColegio;
+use tenda\Mensalidade;
 
 use Illuminate\Http\Request;
 
@@ -75,6 +75,15 @@ class AlunosController extends Controller
         ]);
 
         $aluno->save();
+
+        $mensalidade = new Mensalidade([
+            'id_aluno' => $aluno,
+            'data_pagamento' => now(),
+            'recebido' => 'N'
+        ]);
+
+        $mensalidade->save();
+
         /*Add Aluno*/
           
         return redirect('/alunos')->with('success', 'Matrícula efetuada com sucesso');

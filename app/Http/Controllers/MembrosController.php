@@ -7,6 +7,7 @@ use tenda\Individuo;
 use tenda\Uf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use tenda\GrupoLimpeza;
 
 class MembrosController extends Controller
 {
@@ -57,6 +58,13 @@ class MembrosController extends Controller
             'data_saida'=> $dataTermino->format('Y-m-d'),
             'status' => $request->get('status')
         ]);
+
+        $grupoLimpeza = new GrupoLimpeza([
+            'id_individuo' =>$individuo,
+            'data_inicio' => now()
+        ]);
+
+        $grupoLimpeza->save();
 
         $membro->save();
           

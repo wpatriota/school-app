@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMensalidadeAlunoTable extends Migration {
+class CreateMensalidadeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateMensalidadeAlunoTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('mensalidade_aluno', function(Blueprint $table)
+		Schema::create('mensalidade', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->integer('id_aluno')->index('id_aluno');
+			$table->integer('id_membro')->index('id_membro');
 			$table->dateTime('data_pagamento');
 			$table->integer('id_entrada_financeiro')->nullable()->index('id_entrada_financeiro');
 			$table->string('recebido', 1)->default('N');
@@ -31,7 +32,7 @@ class CreateMensalidadeAlunoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('mensalidade_aluno');
+		Schema::drop('mensalidade');
 	}
 
 }

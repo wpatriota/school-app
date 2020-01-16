@@ -11,7 +11,7 @@
   @endif
   <table class="table table-striped">
     <thead class="table-active">
-        <tr><a href="{{ route('saidasFinanceiro.create')}}" class="btn btn-primary">Nova entrada</a></tr>
+        <tr><a href="{{ route('despesas.create')}}" class="btn btn-primary">Nova entrada</a></tr>
         <tr>
           <td>id</td>
           <td>id_tipo_financeiro</td>

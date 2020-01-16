@@ -7,15 +7,15 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="table table-striped">
+  <a href="{{ route('alunos.create')}}" class="btn btn-primary">Novo Aluno</a>
+  <table class="display compact data-table table table-striped" id="data-table" style="width:100%">
     <thead>
-      <tr><a href="{{ route('alunos.create')}}" class="btn btn-primary">Novo Aluno</a></tr>
       <tr>
-        <td>ID</td>
-        <td>Nome</td>
-        <td>Turma</td>
-        <td>Data Matrícula</td>
-        <td colspan="2">Ações</td>
+        <th>ID</td>
+        <th>Nome</td>
+        <th>Turma</td>
+        <th>Data Matrícula</td>
+        <th colspan="2">Ações</td>
       </tr>
     </thead>
     <tbody>
@@ -38,4 +38,16 @@
     </tbody>
   </table>
 <div>
+@endsection
+
+@section('js')
+  <script>
+    $(document).ready(function(){
+      $('.data-table').dataTable({
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+        }
+      });
+    });   
+  </script>
 @endsection

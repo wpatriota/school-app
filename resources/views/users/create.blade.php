@@ -112,8 +112,28 @@
           <input type="text" class="form-control" name="status"/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-primary btn-submit" id="btn-submit">Salvar</button>
       </form>
   </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+  $('#btn-submit').on('click',function(e){
+    e.preventDefault();
+    var form = $(this).parents('form');
+    swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover this imaginary file!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false
+    }, function(isConfirm){
+        if (isConfirm) form.submit();
+    });
+});
+</script>
 @endsection

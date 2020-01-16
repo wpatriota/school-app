@@ -20,8 +20,8 @@ Route::resource('saidasEstoque', 'saidaEstoqueController')->middleware('auth');
 /***** ESTOQUE *****/
 
 /***** FINANCEIRO *****/
-Route::resource('entradasFinanceiro', 'entradasFinanceiroController')->middleware('auth');
-Route::resource('saidasFinanceiro', 'saidasFinanceiroController')->middleware('auth');
+Route::resource('receita', 'entradasFinanceiroController')->middleware('auth');
+Route::resource('despesas', 'saidasFinanceiroController')->middleware('auth');
 /***** FINANCEIRO *****/
 
 Route::resource('tiposItem', 'TiposItemController')->middleware('auth');
@@ -40,3 +40,8 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('autocomplete', 'IndividuosController@autocomplete')->name('autocomplete');
 
 Route::get('/frequenciaTurma/{turma}', ['uses' =>'frequenciasColegioController@frequenciaTurmaShow'])->name('frequenciaTurma');
+
+Route::get('/inadimplentes', 'entradasFinanceiroController@inadimplentes')->name('inadimplentes');
+Route::get('/demonstrativo', 'entradasFinanceiroController@demonstrativo')->name('demonstrativo');
+Route::get('/lancamentos', 'entradasFinanceiroController@lancamentos')->name('lancamentos');
+

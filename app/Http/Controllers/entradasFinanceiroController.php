@@ -84,4 +84,25 @@ class EntradasFinanceiroController extends Controller
     {
         //
     }
+
+    public function inadimplentes()
+    {
+        $entradasFinanceiro = EntradaFinanceiro::all();
+
+        return view('entradaFinanceiro.inadimplentes',compact('entradasFinanceiro'));
+    }
+
+    public function demonstrativo()
+    {
+        $entradasFinanceiro = EntradaFinanceiro::all();
+
+        return view('entradaFinanceiro.demonstrativo',compact('entradasFinanceiro'));
+    }
+
+    public function lancamentos()
+    {
+        $entradasFinanceiro = EntradaFinanceiro::all();
+
+        return view('entradaFinanceiro.lancamentos',compact('entradasFinanceiro'));
+    }
 }

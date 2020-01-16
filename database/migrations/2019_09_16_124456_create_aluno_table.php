@@ -19,6 +19,7 @@ class CreateAlunoTable extends Migration {
 			$table->integer('id_turma')->index('id_turma');
 			$table->date('data_matricula');
 			$table->float('valor_mensalidade', 10, 0);
+			$table->string('status', 1)->default('s');
 			$table->timestamps();
 		});
 	}

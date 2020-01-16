@@ -40,5 +40,27 @@
         @endforeach
     </tbody>
   </table>
+
+  <div id='calendar'></div>
 <div>
+@endsection
+
+@section('js')
+  <script>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            events : [
+                @foreach($agendas as $agenda)
+                {
+                    title : '{{ $agenda->nome_evento }}',
+                    start : '{{ $agenda->data }}',
+                    @if ($agenda->horario)
+                            end: '{{ $agenda->horario }}',
+                    @endif
+                },
+                @endforeach
+            ],
+        });
+    });
+  </script>
 @endsection

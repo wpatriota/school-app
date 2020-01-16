@@ -7,7 +7,7 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="table table-striped">
+  <table class="display compact data-table table table-striped" id="data-table">
     <thead>
       <tr><a href="{{ route('professores.create')}}" class="btn btn-primary">Novo Professor</a></tr>
       <tr>
@@ -37,4 +37,35 @@
     </tbody>
   </table>
 <div>
+@endsection
+
+@section('js')
+  <script>
+    $(document).ready(function(){
+      $('.data-table').dataTable({
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+        }
+      });
+
+      $('#btn-submit').on('click',function(e){
+        e.preventDefault();
+        Swal.fire({
+          title: 'Excluir Curso',
+          text: "Deseja realmente excluir o curso?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sim',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            var form = $(this).parents('form');
+            form.submit();
+          }
+        })
+      });
+    });   
+  </script>
 @endsection

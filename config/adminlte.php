@@ -208,23 +208,28 @@ return [
             'role' => 'admin',
             'submenu' => [
                 [
-                    'text' => 'Contas a pagar',
-                    'url' => 'saidasFinanceiro',
+                    'text' => 'Lançamentos',
+                    'url' => 'lancamentos',
                     'role' => 'admin',
                 ],
                 [
-                    'text' => 'Contas a receber',
-                    'url' => 'saidasFinanceiro',
+                    'text' => 'Despesas',
+                    'url' => 'despesas',
                     'role' => 'admin',
                 ],
                 [
-                    'text' => 'Entradas',
-                    'url'  => 'entradasFinanceiro',
+                    'text' => 'Receita',
+                    'url' => 'receita',
                     'role' => 'admin',
                 ],
                 [
-                    'text' => 'Saidas',
-                    'url' => 'saidasFinanceiro',
+                    'text' => 'Demonstrativo',
+                    'url'  => 'demonstrativo',
+                    'role' => 'admin',
+                ],
+                [
+                    'text' => 'Inadimplentes',
+                    'url' => 'inadimplentes',
                     'role' => 'admin',
                 ]
             ]
@@ -312,12 +317,82 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js'
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.js'
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css'
+                ],
+            ],
+        ],
+        [
+            'name' => 'Datatables',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Select2',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Chartjs',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Sweetalert2',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Pace',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-corner-indicator.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
         ],

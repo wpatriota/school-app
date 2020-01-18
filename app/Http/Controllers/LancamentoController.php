@@ -7,12 +7,12 @@ use tenda\Turma;
 use tenda\Curso;
 use tenda\Individuo;
 use tenda\Uf;
-use tenda\FrequenciaColegio;
 use tenda\Lancamento;
 
 use Illuminate\Http\Request;
+use tenda\TipoLancamento;
 
-class AlunosController extends Controller
+class LancamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +21,10 @@ class AlunosController extends Controller
      */
     public function index()
     {
-        $alunos = Aluno::all();
+        $lancamentos = Lancamento::all();
+        $tiposLancamentos = TipoLancamento::all();
 
-        return View('alunos.index', compact('alunos'));
+        return View('lancamentos.index', compact('lancamentos','tiposLancamentos'));
     }
 
     /**
@@ -55,23 +56,12 @@ class AlunosController extends Controller
             'valor_mensalidade' => 'required'
         ]);
 
-        $aluno = new Aluno([
-            'id_individuo' => $request->get('id_individuo'),
-            'id_turma'=> $request->get('id_turma'),
-            'data_matricula' => now(),
-            'valor_mensalidade'=> $request->get('valor_mensalidade')
-        ]);
-
-        $aluno->save();
-
         $lancamento = new Lancamento([
-            'id_aluno' => $aluno->id,
-            'id_membro' => 1,
-            'id_tipo_lancamento' => 1,
+            'descricao' => $request->get('descricao'),
+            'id_aluno' => $request->get('id_aluno'),
+            'id_membro' => $request->get('id_membro'),
             'data_lancamento' => now(),
-            'descricao' => 'Mensalidade 1',
             'data_vencimento' => now(),
-            'valor'=> $request->get('valor_mensalidade'),
             'status' => 'N'
         ]);
 
@@ -79,7 +69,7 @@ class AlunosController extends Controller
 
         /*Add Aluno*/
           
-        return redirect('/alunos')->with('success', 'Matrícula efetuada com sucesso');
+        return redirect('/lancamentos')->with('success', 'Lançamento efetuada com sucesso');
     }
 
     /**
@@ -90,11 +80,7 @@ class AlunosController extends Controller
      */
     public function show($id)
     {
-        $aluno = Aluno::find($id);
-        $frequenciaColegio = FrequenciaColegio::where('id_aluno', $id)->get();
-        $individuo = Individuo::find($aluno->id_individuo);
-
-        return view('alunos.show', compact('aluno', 'individuo', 'frequenciaColegio'));
+        
     }
 
     /**
@@ -105,7 +91,7 @@ class AlunosController extends Controller
      */
     public function edit(Aluno $aluno)
     {
-        return view('alunos.edit', compact('aluno'));
+        
     }
 
     /**

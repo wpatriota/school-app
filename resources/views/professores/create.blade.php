@@ -16,7 +16,8 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('professores.store') }}">
-        <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-6">
           {!! Form::Label('individuo', 'Individuo:') !!}
           <select class="form-control" name="id_individuo">
             @foreach($individuos as $individuo)
@@ -25,16 +26,16 @@
           </select>
         </div>
         
-        <div class="form-group">
-          <label for="data_inicio">Data de Início :</label>
+        <div class="form-group col-md-3">
+          <label for="data_inicio ">Data de Início :</label>
           <input type="text" class="form-control" name="data_inicio"/>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-3">
           <label for="data_termino">Data de Término :</label>
           <input type="text" class="form-control" name="data_termino"/>
         </div>
-
+      </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
       </form>
   </div>

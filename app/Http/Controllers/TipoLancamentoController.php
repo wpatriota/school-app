@@ -4,7 +4,7 @@ namespace tenda\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MensalidadesController extends Controller
+class TipoLancamentoController extends Controller
 {
     //
 }

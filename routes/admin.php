@@ -12,6 +12,7 @@ Route::resource('individuos', 'IndividuosController')->middleware('auth');
 Route::resource('frequenciasColegio', 'FrequenciasColegioController')->middleware('auth');
 Route::resource('frequenciasTenda', 'FrequenciasTendaController')->middleware('auth');
 Route::resource('gruposLimpeza', 'GruposLimpezaController')->middleware('auth');
+Route::resource('lancamentos', 'LancamentoController')->middleware('auth');
 
 /***** ESTOQUE *****/
 Route::resource('estoque', 'EstoquesController')->middleware('auth');
@@ -42,6 +43,6 @@ Route::get('autocomplete', 'IndividuosController@autocomplete')->name('autocompl
 Route::get('/frequenciaTurma/{turma}', ['uses' =>'frequenciasColegioController@frequenciaTurmaShow'])->name('frequenciaTurma');
 
 Route::get('/inadimplentes', 'entradasFinanceiroController@inadimplentes')->name('inadimplentes');
+
 Route::get('/demonstrativo', 'entradasFinanceiroController@demonstrativo')->name('demonstrativo');
-Route::get('/lancamentos', 'entradasFinanceiroController@lancamentos')->name('lancamentos');
 

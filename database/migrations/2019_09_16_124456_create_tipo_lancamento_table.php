@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTipoEntradaFinanceiroTable extends Migration {
+class CreateTipoLancamentoTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateTipoEntradaFinanceiroTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tipo_entrada_financeiro', function(Blueprint $table)
+		Schema::create('tipo_lancamento', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('descricao');
+			$table->string('tipo');//receita ou despesa
+			$table->string('descricao');			
 			$table->timestamps();
 		});
 	}
@@ -28,7 +29,7 @@ class CreateTipoEntradaFinanceiroTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tipo_entrada_financeiro');
+		Schema::drop('tipo_lancamento');
 	}
 
 }

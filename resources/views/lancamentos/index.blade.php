@@ -9,31 +9,29 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a>
+  <a href="{{ route('lancamentos.create')}}" class="btn btn-primary">Novo Lancamento</a>
   <table class="display compact data-table table table-striped" id="data-table">
     <thead class="table-active">
-        <!-- <tr><th><a href="{{ route('cursos.create')}}" class="btn btn-primary">Novo Curso</a></th></tr> -->
         <tr>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Valor Mensalidade</th>
-          <th>Ações</th>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>categoria</th>
+          <th>Valor</th>
+          <th>Data Lancamento</th>
+          <th>Data Vencimento</th>
+          <th>Status</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($cursos as $curso)
+        @foreach($lancamentos as $lancamento)
         <tr>
-            <td>{{$curso->nome}}</td>
-            <td>{{$curso->descricao}}</td>
-            <td>{{'R$ '.number_format($curso->valor_mensalidade, 2, ',', '.')}}</td>
-            <td>
-            <a href="{{ route('cursos.edit',$curso->id)}}" class="btn btn-primary">Editar</a>
-                <form action="{{ route('cursos.destroy', $curso->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger btn-submit" type="submit" id="btn-submit">Excluir</button>
-                </form>
-            </td>
+            <td>{{$lancamento->id}}</td>
+            <td>{{$lancamento->tipoLancamento->tipo}}</td>
+            <td>{{$lancamento->tipoLancamento->descricao}}</td>
+            <td>{{$lancamento->descricao}}</td>
+            <td>{{$lancamento->descricao}}</td>
+            <td>{{$lancamento->descricao}}</td>
+            <td>{{$lancamento->status}}</td>
         </tr>
         @endforeach
     </tbody>

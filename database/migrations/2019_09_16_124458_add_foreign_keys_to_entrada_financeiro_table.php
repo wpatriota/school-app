@@ -14,8 +14,8 @@ class AddForeignKeysToEntradaFinanceiroTable extends Migration {
 	{
 		Schema::table('entrada_financeiro', function(Blueprint $table)
 		{
-			$table->foreign('id_forma_pagamento', 'entrada_financeiro_ibfk_1')->references('id')->on('tipo_forma_pagamento')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('id_tipo_financeiro', 'entrada_financeiro_ibfk_2')->references('id')->on('tipo_entrada_financeiro')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_lancamento', 'entrada_financeiro_ibfk_1')->references('id')->on('lancamento')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_forma_pagamento', 'entrada_financeiro_ibfk_2')->references('id')->on('forma_pagamento')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 

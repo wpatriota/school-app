@@ -7,33 +7,30 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="display compact data-table table table-striped" id="data-table">
+  <a href="{{ route('professores.create')}}" class="btn btn-primary">Novo Professor</a>
+  <table class="display compact data-table table table-striped" id="data-table" style="width: 100%">
     <thead>
-      <tr><a href="{{ route('professores.create')}}" class="btn btn-primary">Novo Professor</a></tr>
       <tr>
         <td>ID</td>
         <td>Nome</td>
-        <td>Turma</td>
-        <td>Data Matrícula</td>
         <td colspan="2">Ações</td>
       </tr>
     </thead>
     <tbody>
-        @foreach($professores as $professor)
+      @foreach($professores as $professor)
         <tr>
-            <td>{{$professor->id}}</td>
-            <td>{{$professor->individuo->nome}}</td>
-            <td>{{ \Carbon\Carbon::parse($professor->data_matricula)->format('d/m/Y')}}</td>
-            <td><a href="{{ route('professores.edit',$professor->id)}}" class="btn btn-primary">Editar</a></td>
-            <td>
-                <form action="{{ route('professores.destroy', $professor->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Excluir</button>
-                </form>
-            </td>
+          <td>{{$professor->id}}</td>
+          <td>{{$professor->individuo->nome}}</td>
+          <td><a href="{{ route('professores.edit',$professor->id)}}" class="btn btn-primary">Editar</a></td>
+          <td>
+            <form action="{{ route('professores.destroy', $professor->id)}}" method="post">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger" type="submit">Excluir</button>
+            </form>
+          </td>
         </tr>
-        @endforeach
+      @endforeach
     </tbody>
   </table>
 <div>
